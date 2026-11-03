@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "LLM Broken JSON Repair & Extractor API",
+    "description": "Deterministically strip markdown fences, conversational chatter, trailing commas, and single quotes to repair broken LLM JSON.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/json-repair/repair": {
+      "post": {
+        "tags": [
+          "7. LLM Output Repair & Messy JSON Parser"
+        ],
+        "summary": "Extract and deterministically repair broken or markdown-wrapped JSON from LLM outputs",
+        "operationId": "repair_llm_json_api_v1_json_repair_repair_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonRepairRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonRepairResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "JsonRepairRequest": {
+        "properties": {
+          "raw_llm_output": {
+            "type": "string",
+            "title": "Raw Llm Output",
+            "description": "Malformed LLM response containing markdown fences, single quotes, trailing commas, or unclosed brackets.",
+            "default": "Sure! Here is the JSON you requested:\n```json\n{\n  'name': 'Acme AI',\n  'active': True,\n  'NullField': None,\n  'tags': ['saas', 'b2b',],\n}\n```\nHope this helps!"
+          }
+        },
+        "type": "object",
+        "title": "JsonRepairRequest"
+      },
+      "JsonRepairResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "repaired_json_string": {
+            "type": "string",
+            "title": "Repaired Json String"
+          },
+          "parsed_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parsed Data"
+          },
+          "repairs_applied": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Repairs Applied"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "repaired_json_string",
+          "parsed_data",
+          "repairs_applied"
+        ],
+        "title": "JsonRepairResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

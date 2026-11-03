@@ -1,0 +1,187 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "YouTube Transcript, Hook & Pacing Extractor API",
+    "description": "Fetch full YouTube transcripts, first-30-second viral hooks, word counts, and speaking pace (WPM) without an API key.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/youtube-intel/transcript": {
+      "post": {
+        "tags": [
+          "5. YouTube Transcript, Metadata & Viral Hook Extractor"
+        ],
+        "summary": "Extract timestamped transcript, opening 30s viral hook, and pacing metrics from YouTube",
+        "operationId": "get_youtube_transcript_api_v1_youtube_intel_transcript_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/YouTubeIntelRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeIntelResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "YouTubeIntelRequest": {
+        "properties": {
+          "video_url_or_id": {
+            "type": "string",
+            "title": "Video Url Or Id",
+            "description": "YouTube video URL, Shorts URL, or 11-character Video ID.",
+            "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          },
+          "languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Languages",
+            "description": "Preferred transcript language codes in priority order.",
+            "default": [
+              "en"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "YouTubeIntelRequest"
+      },
+      "YouTubeIntelResponse": {
+        "properties": {
+          "video_id": {
+            "type": "string",
+            "title": "Video Id"
+          },
+          "full_text": {
+            "type": "string",
+            "title": "Full Text"
+          },
+          "opening_hook_first_30s": {
+            "type": "string",
+            "title": "Opening Hook First 30S"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "estimated_speaking_wpm": {
+            "type": "number",
+            "title": "Estimated Speaking Wpm"
+          },
+          "total_duration_seconds": {
+            "type": "number",
+            "title": "Total Duration Seconds"
+          },
+          "segments": {
+            "items": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Segments"
+          }
+        },
+        "type": "object",
+        "required": [
+          "video_id",
+          "full_text",
+          "opening_hook_first_30s",
+          "word_count",
+          "estimated_speaking_wpm",
+          "total_duration_seconds",
+          "segments"
+        ],
+        "title": "YouTubeIntelResponse"
+      }
+    }
+  }
+}

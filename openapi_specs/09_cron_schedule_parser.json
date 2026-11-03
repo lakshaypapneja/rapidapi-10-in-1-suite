@@ -1,0 +1,170 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Universal Cron & Natural Language Schedule API",
+    "description": "Convert cron expressions or English phrases into human-readable summaries and calculate exact upcoming run timestamps across timezones.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/cron-schedule/parse": {
+      "post": {
+        "tags": [
+          "9. Universal Cron, Natural Language Schedule & Timezone"
+        ],
+        "summary": "Validate cron or natural text, explain in plain English, and compute next N execution times",
+        "operationId": "parse_cron_schedule_api_v1_cron_schedule_parse_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CronScheduleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CronScheduleResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CronScheduleRequest": {
+        "properties": {
+          "expression_or_text": {
+            "type": "string",
+            "title": "Expression Or Text",
+            "description": "Standard 5-field cron expression (e.g. '*/15 * * * *') or natural phrase (e.g. 'every weekday at 9am').",
+            "default": "0 9 * * 1-5"
+          },
+          "timezone_name": {
+            "type": "string",
+            "title": "Timezone Name",
+            "description": "IANA timezone name (e.g. 'UTC', 'America/New_York', 'Asia/Kolkata').",
+            "default": "UTC"
+          },
+          "next_runs_count": {
+            "type": "integer",
+            "maximum": 25.0,
+            "minimum": 1.0,
+            "title": "Next Runs Count",
+            "description": "Number of upcoming execution timestamps to calculate.",
+            "default": 5
+          }
+        },
+        "type": "object",
+        "title": "CronScheduleRequest"
+      },
+      "CronScheduleResponse": {
+        "properties": {
+          "cron_expression": {
+            "type": "string",
+            "title": "Cron Expression"
+          },
+          "human_summary": {
+            "type": "string",
+            "title": "Human Summary"
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone"
+          },
+          "next_executions_iso": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Next Executions Iso"
+          },
+          "seconds_until_next_run": {
+            "type": "integer",
+            "title": "Seconds Until Next Run"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cron_expression",
+          "human_summary",
+          "timezone",
+          "next_executions_iso",
+          "seconds_until_next_run"
+        ],
+        "title": "CronScheduleResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

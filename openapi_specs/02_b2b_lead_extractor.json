@@ -1,0 +1,191 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "B2B Domain & Company Lead Enrichment API",
+    "description": "Extract emails, phone numbers, social media profiles, key pages, and tech stack from any company website.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/lead-extractor/enrich": {
+      "post": {
+        "tags": [
+          "2. B2B Domain & Company Lead Enrichment"
+        ],
+        "summary": "Extract emails, phones, social profiles, and tech stack from any company domain",
+        "operationId": "enrich_company_domain_api_v1_lead_extractor_enrich_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadExtractRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadExtractResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "LeadExtractRequest": {
+        "properties": {
+          "domain_or_url": {
+            "type": "string",
+            "title": "Domain Or Url",
+            "description": "Company domain or website URL to extract B2B contact leads, socials, and tech stack.",
+            "default": "https://stripe.com"
+          }
+        },
+        "type": "object",
+        "title": "LeadExtractRequest"
+      },
+      "LeadExtractResponse": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "resolved_url": {
+            "type": "string",
+            "title": "Resolved Url"
+          },
+          "company_name": {
+            "type": "string",
+            "title": "Company Name"
+          },
+          "tagline_or_description": {
+            "type": "string",
+            "title": "Tagline Or Description"
+          },
+          "emails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Emails"
+          },
+          "phone_numbers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Phone Numbers"
+          },
+          "social_profiles": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Social Profiles"
+          },
+          "detected_tech_stack": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Detected Tech Stack"
+          },
+          "important_pages": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Important Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "resolved_url",
+          "company_name",
+          "tagline_or_description",
+          "emails",
+          "phone_numbers",
+          "social_profiles",
+          "detected_tech_stack",
+          "important_pages"
+        ],
+        "title": "LeadExtractResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Smart PII Redaction & LLM Prompt Sanitizer API",
+    "description": "Detect and redact emails, phones, SSNs, credit cards, IP addresses, and API keys from text before sending to LLMs.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/pii-redactor/sanitize": {
+      "post": {
+        "tags": [
+          "6. Smart PII Redaction & Data Sanitizer for LLMs"
+        ],
+        "summary": "Redact PII (emails, phones, SSNs, credit cards, IPs, API keys) with reversible token map",
+        "operationId": "sanitize_pii_api_v1_pii_redactor_sanitize_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PiiRedactRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PiiRedactResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "PiiRedactRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Raw text or LLM prompt to sanitize and strip PII/secrets from.",
+            "default": "Customer John Doe (email: john.doe@acme.com, phone: +1 (415) 555-2671, SSN: 123-45-6789) used card 4532-0151-1283-0366 from IP 192.168.1.42 with key sk-proj1234567890abcdefghijklmnop."
+          },
+          "placeholder_style": {
+            "type": "string",
+            "title": "Placeholder Style",
+            "description": "Use 'numbered' (e.g. [EMAIL_1]) for reversible mapping or 'masked' (e.g. [REDACTED_EMAIL]).",
+            "default": "numbered"
+          }
+        },
+        "type": "object",
+        "title": "PiiRedactRequest"
+      },
+      "PiiRedactResponse": {
+        "properties": {
+          "sanitized_text": {
+            "type": "string",
+            "title": "Sanitized Text"
+          },
+          "total_redactions": {
+            "type": "integer",
+            "title": "Total Redactions"
+          },
+          "counts_by_type": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Counts By Type"
+          },
+          "redaction_map": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Redaction Map"
+          },
+          "safe_for_llm": {
+            "type": "boolean",
+            "title": "Safe For Llm"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanitized_text",
+          "total_redactions",
+          "counts_by_type",
+          "redaction_map",
+          "safe_for_llm"
+        ],
+        "title": "PiiRedactResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

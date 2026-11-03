@@ -1,0 +1,205 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Disposable Email, MX DNS & B2B Verification API",
+    "description": "Validate email syntax, live MX DNS records, disposable email providers, role accounts, and typo suggestions.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/email-verify/check": {
+      "post": {
+        "tags": [
+          "4. Disposable Email, Domain & Syntax Intelligence"
+        ],
+        "summary": "Verify email syntax, live DNS MX records, disposable domains, and B2B status",
+        "operationId": "check_email_api_v1_email_verify_check_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerifyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailVerifyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EmailVerifyRequest": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "description": "Email address to validate for syntax, MX DNS records, disposable provider, and B2B status.",
+            "default": "founder@stripe.com"
+          }
+        },
+        "type": "object",
+        "title": "EmailVerifyRequest"
+      },
+      "EmailVerifyResponse": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "is_valid_syntax": {
+            "type": "boolean",
+            "title": "Is Valid Syntax"
+          },
+          "domain": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Domain"
+          },
+          "has_mx_records": {
+            "type": "boolean",
+            "title": "Has Mx Records"
+          },
+          "mx_hosts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mx Hosts"
+          },
+          "is_disposable": {
+            "type": "boolean",
+            "title": "Is Disposable"
+          },
+          "is_free_provider": {
+            "type": "boolean",
+            "title": "Is Free Provider"
+          },
+          "is_role_account": {
+            "type": "boolean",
+            "title": "Is Role Account"
+          },
+          "is_b2b_corporate": {
+            "type": "boolean",
+            "title": "Is B2B Corporate"
+          },
+          "suggested_typo_fix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suggested Typo Fix"
+          },
+          "deliverability_risk_score": {
+            "type": "integer",
+            "title": "Deliverability Risk Score"
+          },
+          "verdict": {
+            "type": "string",
+            "title": "Verdict"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "is_valid_syntax",
+          "domain",
+          "has_mx_records",
+          "mx_hosts",
+          "is_disposable",
+          "is_free_provider",
+          "is_role_account",
+          "is_b2b_corporate",
+          "suggested_typo_fix",
+          "deliverability_risk_score",
+          "verdict"
+        ],
+        "title": "EmailVerifyResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

@@ -1,0 +1,1553 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI & Developer Utility 10-API Suite (RapidAPI Ready)",
+    "description": "Production-ready collection of 10 high-demand APIs built for RapidAPI monetization. Includes Web2Markdown, B2B Lead Enrichment, Technical SEO & GEO Audit, Email Intelligence, YouTube Transcript & Hook Extractor, PII Redactor for LLMs, Broken JSON Repair, Password/Secret Leak Auditor, Universal Cron Parser, and Readability/Sentiment Scorer.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Health & Catalog"
+        ],
+        "summary": "Root Catalog",
+        "operationId": "root_catalog__get",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "Health & Catalog"
+        ],
+        "summary": "Health Check",
+        "operationId": "health_check_health_get",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-to-markdown/extract": {
+      "post": {
+        "tags": [
+          "1. Web2Markdown & AI Context Extractor"
+        ],
+        "summary": "Convert any URL to clean LLM-ready Markdown & metadata",
+        "operationId": "extract_markdown_api_v1_web_to_markdown_extract_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebToMarkdownRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebToMarkdownResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/lead-extractor/enrich": {
+      "post": {
+        "tags": [
+          "2. B2B Domain & Company Lead Enrichment"
+        ],
+        "summary": "Extract emails, phones, social profiles, and tech stack from any company domain",
+        "operationId": "enrich_company_domain_api_v1_lead_extractor_enrich_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadExtractRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadExtractResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/seo-audit/analyze": {
+      "post": {
+        "tags": [
+          "3. Technical SEO & GEO (AI Search) Audit"
+        ],
+        "summary": "Perform a 0-100 Technical SEO & AI Search (GEO) audit on any webpage",
+        "operationId": "analyze_seo_api_v1_seo_audit_analyze_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeoAuditRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeoAuditResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/email-verify/check": {
+      "post": {
+        "tags": [
+          "4. Disposable Email, Domain & Syntax Intelligence"
+        ],
+        "summary": "Verify email syntax, live DNS MX records, disposable domains, and B2B status",
+        "operationId": "check_email_api_v1_email_verify_check_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailVerifyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/youtube-intel/transcript": {
+      "post": {
+        "tags": [
+          "5. YouTube Transcript, Metadata & Viral Hook Extractor"
+        ],
+        "summary": "Extract timestamped transcript, opening 30s viral hook, and pacing metrics from YouTube",
+        "operationId": "get_youtube_transcript_api_v1_youtube_intel_transcript_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/YouTubeIntelRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeIntelResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/pii-redactor/sanitize": {
+      "post": {
+        "tags": [
+          "6. Smart PII Redaction & Data Sanitizer for LLMs"
+        ],
+        "summary": "Redact PII (emails, phones, SSNs, credit cards, IPs, API keys) with reversible token map",
+        "operationId": "sanitize_pii_api_v1_pii_redactor_sanitize_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PiiRedactRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PiiRedactResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/json-repair/repair": {
+      "post": {
+        "tags": [
+          "7. LLM Output Repair & Messy JSON Parser"
+        ],
+        "summary": "Extract and deterministically repair broken or markdown-wrapped JSON from LLM outputs",
+        "operationId": "repair_llm_json_api_v1_json_repair_repair_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonRepairRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonRepairResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security-audit/evaluate": {
+      "post": {
+        "tags": [
+          "8. Password Entropy & Secret Leak Auditor"
+        ],
+        "summary": "Calculate password entropy, offline GPU crack time, and scan text for leaked API secrets",
+        "operationId": "evaluate_security_api_v1_security_audit_evaluate_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityAuditRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityAuditResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cron-schedule/parse": {
+      "post": {
+        "tags": [
+          "9. Universal Cron, Natural Language Schedule & Timezone"
+        ],
+        "summary": "Validate cron or natural text, explain in plain English, and compute next N execution times",
+        "operationId": "parse_cron_schedule_api_v1_cron_schedule_parse_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CronScheduleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CronScheduleResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/text-analytics/score": {
+      "post": {
+        "tags": [
+          "10. Readability, Sentiment & Content Quality Scorer"
+        ],
+        "summary": "Compute Flesch-Kincaid readability, lexical diversity, sentiment polarity, and top SEO keywords",
+        "operationId": "score_text_analytics_api_v1_text_analytics_score_post",
+        "parameters": [
+          {
+            "name": "x-rapidapi-proxy-secret",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Rapidapi-Proxy-Secret"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextAnalyticsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextAnalyticsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CronScheduleRequest": {
+        "properties": {
+          "expression_or_text": {
+            "type": "string",
+            "title": "Expression Or Text",
+            "description": "Standard 5-field cron expression (e.g. '*/15 * * * *') or natural phrase (e.g. 'every weekday at 9am').",
+            "default": "0 9 * * 1-5"
+          },
+          "timezone_name": {
+            "type": "string",
+            "title": "Timezone Name",
+            "description": "IANA timezone name (e.g. 'UTC', 'America/New_York', 'Asia/Kolkata').",
+            "default": "UTC"
+          },
+          "next_runs_count": {
+            "type": "integer",
+            "maximum": 25.0,
+            "minimum": 1.0,
+            "title": "Next Runs Count",
+            "description": "Number of upcoming execution timestamps to calculate.",
+            "default": 5
+          }
+        },
+        "type": "object",
+        "title": "CronScheduleRequest"
+      },
+      "CronScheduleResponse": {
+        "properties": {
+          "cron_expression": {
+            "type": "string",
+            "title": "Cron Expression"
+          },
+          "human_summary": {
+            "type": "string",
+            "title": "Human Summary"
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone"
+          },
+          "next_executions_iso": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Next Executions Iso"
+          },
+          "seconds_until_next_run": {
+            "type": "integer",
+            "title": "Seconds Until Next Run"
+          }
+        },
+        "type": "object",
+        "required": [
+          "cron_expression",
+          "human_summary",
+          "timezone",
+          "next_executions_iso",
+          "seconds_until_next_run"
+        ],
+        "title": "CronScheduleResponse"
+      },
+      "EmailVerifyRequest": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "description": "Email address to validate for syntax, MX DNS records, disposable provider, and B2B status.",
+            "default": "founder@stripe.com"
+          }
+        },
+        "type": "object",
+        "title": "EmailVerifyRequest"
+      },
+      "EmailVerifyResponse": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "is_valid_syntax": {
+            "type": "boolean",
+            "title": "Is Valid Syntax"
+          },
+          "domain": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Domain"
+          },
+          "has_mx_records": {
+            "type": "boolean",
+            "title": "Has Mx Records"
+          },
+          "mx_hosts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mx Hosts"
+          },
+          "is_disposable": {
+            "type": "boolean",
+            "title": "Is Disposable"
+          },
+          "is_free_provider": {
+            "type": "boolean",
+            "title": "Is Free Provider"
+          },
+          "is_role_account": {
+            "type": "boolean",
+            "title": "Is Role Account"
+          },
+          "is_b2b_corporate": {
+            "type": "boolean",
+            "title": "Is B2B Corporate"
+          },
+          "suggested_typo_fix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suggested Typo Fix"
+          },
+          "deliverability_risk_score": {
+            "type": "integer",
+            "title": "Deliverability Risk Score"
+          },
+          "verdict": {
+            "type": "string",
+            "title": "Verdict"
+          }
+        },
+        "type": "object",
+        "required": [
+          "email",
+          "is_valid_syntax",
+          "domain",
+          "has_mx_records",
+          "mx_hosts",
+          "is_disposable",
+          "is_free_provider",
+          "is_role_account",
+          "is_b2b_corporate",
+          "suggested_typo_fix",
+          "deliverability_risk_score",
+          "verdict"
+        ],
+        "title": "EmailVerifyResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "JsonRepairRequest": {
+        "properties": {
+          "raw_llm_output": {
+            "type": "string",
+            "title": "Raw Llm Output",
+            "description": "Malformed LLM response containing markdown fences, single quotes, trailing commas, or unclosed brackets.",
+            "default": "Sure! Here is the JSON you requested:\n```json\n{\n  'name': 'Acme AI',\n  'active': True,\n  'NullField': None,\n  'tags': ['saas', 'b2b',],\n}\n```\nHope this helps!"
+          }
+        },
+        "type": "object",
+        "title": "JsonRepairRequest"
+      },
+      "JsonRepairResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "repaired_json_string": {
+            "type": "string",
+            "title": "Repaired Json String"
+          },
+          "parsed_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parsed Data"
+          },
+          "repairs_applied": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Repairs Applied"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "repaired_json_string",
+          "parsed_data",
+          "repairs_applied"
+        ],
+        "title": "JsonRepairResponse"
+      },
+      "LeadExtractRequest": {
+        "properties": {
+          "domain_or_url": {
+            "type": "string",
+            "title": "Domain Or Url",
+            "description": "Company domain or website URL to extract B2B contact leads, socials, and tech stack.",
+            "default": "https://stripe.com"
+          }
+        },
+        "type": "object",
+        "title": "LeadExtractRequest"
+      },
+      "LeadExtractResponse": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "resolved_url": {
+            "type": "string",
+            "title": "Resolved Url"
+          },
+          "company_name": {
+            "type": "string",
+            "title": "Company Name"
+          },
+          "tagline_or_description": {
+            "type": "string",
+            "title": "Tagline Or Description"
+          },
+          "emails": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Emails"
+          },
+          "phone_numbers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Phone Numbers"
+          },
+          "social_profiles": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Social Profiles"
+          },
+          "detected_tech_stack": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Detected Tech Stack"
+          },
+          "important_pages": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Important Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "resolved_url",
+          "company_name",
+          "tagline_or_description",
+          "emails",
+          "phone_numbers",
+          "social_profiles",
+          "detected_tech_stack",
+          "important_pages"
+        ],
+        "title": "LeadExtractResponse"
+      },
+      "PiiRedactRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Raw text or LLM prompt to sanitize and strip PII/secrets from.",
+            "default": "Customer John Doe (email: john.doe@acme.com, phone: +1 (415) 555-2671, SSN: 123-45-6789) used card 4532-0151-1283-0366 from IP 192.168.1.42 with key sk-proj1234567890abcdefghijklmnop."
+          },
+          "placeholder_style": {
+            "type": "string",
+            "title": "Placeholder Style",
+            "description": "Use 'numbered' (e.g. [EMAIL_1]) for reversible mapping or 'masked' (e.g. [REDACTED_EMAIL]).",
+            "default": "numbered"
+          }
+        },
+        "type": "object",
+        "title": "PiiRedactRequest"
+      },
+      "PiiRedactResponse": {
+        "properties": {
+          "sanitized_text": {
+            "type": "string",
+            "title": "Sanitized Text"
+          },
+          "total_redactions": {
+            "type": "integer",
+            "title": "Total Redactions"
+          },
+          "counts_by_type": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Counts By Type"
+          },
+          "redaction_map": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Redaction Map"
+          },
+          "safe_for_llm": {
+            "type": "boolean",
+            "title": "Safe For Llm"
+          }
+        },
+        "type": "object",
+        "required": [
+          "sanitized_text",
+          "total_redactions",
+          "counts_by_type",
+          "redaction_map",
+          "safe_for_llm"
+        ],
+        "title": "PiiRedactResponse"
+      },
+      "SecurityAuditRequest": {
+        "properties": {
+          "password_or_secret": {
+            "type": "string",
+            "title": "Password Or Secret",
+            "description": "Password string to evaluate for entropy, crack time, and pattern weaknesses.",
+            "default": "Tr0ub4dor&3!2026"
+          },
+          "code_or_text_snippet": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code Or Text Snippet",
+            "description": "Optional code or log snippet to scan for leaked API keys, tokens, and credentials.",
+            "default": "export OPENAI_API_KEY=sk-proj1234567890abcdefghijklmnop"
+          }
+        },
+        "type": "object",
+        "title": "SecurityAuditRequest"
+      },
+      "SecurityAuditResponse": {
+        "properties": {
+          "password_length": {
+            "type": "integer",
+            "title": "Password Length"
+          },
+          "charset_pool_size": {
+            "type": "integer",
+            "title": "Charset Pool Size"
+          },
+          "entropy_bits": {
+            "type": "number",
+            "title": "Entropy Bits"
+          },
+          "strength_rating": {
+            "type": "string",
+            "title": "Strength Rating"
+          },
+          "estimated_offline_crack_time": {
+            "type": "string",
+            "title": "Estimated Offline Crack Time"
+          },
+          "weakness_warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Weakness Warnings"
+          },
+          "leaked_secrets_detected": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Leaked Secrets Detected"
+          }
+        },
+        "type": "object",
+        "required": [
+          "password_length",
+          "charset_pool_size",
+          "entropy_bits",
+          "strength_rating",
+          "estimated_offline_crack_time",
+          "weakness_warnings",
+          "leaked_secrets_detected"
+        ],
+        "title": "SecurityAuditResponse"
+      },
+      "SeoAuditRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "URL of the webpage to run a full Technical SEO & AI-Search (GEO) audit on.",
+            "default": "https://example.com"
+          }
+        },
+        "type": "object",
+        "title": "SeoAuditRequest"
+      },
+      "SeoAuditResponse": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "overall_score": {
+            "type": "integer",
+            "title": "Overall Score"
+          },
+          "grade": {
+            "type": "string",
+            "title": "Grade"
+          },
+          "meta": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Meta"
+          },
+          "headings_summary": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Headings Summary"
+          },
+          "images_audit": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Images Audit"
+          },
+          "links_audit": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Links Audit"
+          },
+          "structured_data_json_ld_count": {
+            "type": "integer",
+            "title": "Structured Data Json Ld Count"
+          },
+          "ai_geo_readiness": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Ai Geo Readiness"
+          },
+          "issues_and_recommendations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Issues And Recommendations"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "overall_score",
+          "grade",
+          "meta",
+          "headings_summary",
+          "images_audit",
+          "links_audit",
+          "structured_data_json_ld_count",
+          "ai_geo_readiness",
+          "issues_and_recommendations"
+        ],
+        "title": "SeoAuditResponse"
+      },
+      "TextAnalyticsRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Article, ad copy, or LLM output to score for readability, keyword density, and sentiment.",
+            "default": "Building micro-APIs is one of the fastest and most reliable ways for developers to create recurring digital income. By solving specific technical bottlenecks cleanly, your service saves engineering teams hours of work every single week."
+          }
+        },
+        "type": "object",
+        "title": "TextAnalyticsRequest"
+      },
+      "TextAnalyticsResponse": {
+        "properties": {
+          "character_count": {
+            "type": "integer",
+            "title": "Character Count"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "sentence_count": {
+            "type": "integer",
+            "title": "Sentence Count"
+          },
+          "average_words_per_sentence": {
+            "type": "number",
+            "title": "Average Words Per Sentence"
+          },
+          "flesch_reading_ease": {
+            "type": "number",
+            "title": "Flesch Reading Ease"
+          },
+          "flesch_kincaid_grade_level": {
+            "type": "number",
+            "title": "Flesch Kincaid Grade Level"
+          },
+          "reading_difficulty_label": {
+            "type": "string",
+            "title": "Reading Difficulty Label"
+          },
+          "lexical_diversity_ratio": {
+            "type": "number",
+            "title": "Lexical Diversity Ratio"
+          },
+          "sentiment_score": {
+            "type": "number",
+            "title": "Sentiment Score"
+          },
+          "sentiment_label": {
+            "type": "string",
+            "title": "Sentiment Label"
+          },
+          "top_keywords": {
+            "items": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Top Keywords"
+          }
+        },
+        "type": "object",
+        "required": [
+          "character_count",
+          "word_count",
+          "sentence_count",
+          "average_words_per_sentence",
+          "flesch_reading_ease",
+          "flesch_kincaid_grade_level",
+          "reading_difficulty_label",
+          "lexical_diversity_ratio",
+          "sentiment_score",
+          "sentiment_label",
+          "top_keywords"
+        ],
+        "title": "TextAnalyticsResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WebToMarkdownRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "Target webpage URL to scrape and convert into clean LLM-ready Markdown.",
+            "default": "https://example.com"
+          },
+          "include_links": {
+            "type": "boolean",
+            "title": "Include Links",
+            "description": "Whether to preserve hyperlinks in the Markdown output.",
+            "default": true
+          },
+          "include_images": {
+            "type": "boolean",
+            "title": "Include Images",
+            "description": "Whether to include image Markdown tags.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "WebToMarkdownRequest"
+      },
+      "WebToMarkdownResponse": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "markdown": {
+            "type": "string",
+            "title": "Markdown"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "estimated_llm_tokens": {
+            "type": "integer",
+            "title": "Estimated Llm Tokens"
+          },
+          "reading_time_minutes": {
+            "type": "number",
+            "title": "Reading Time Minutes"
+          },
+          "links_extracted": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Links Extracted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "title",
+          "description",
+          "markdown",
+          "word_count",
+          "estimated_llm_tokens",
+          "reading_time_minutes",
+          "links_extracted"
+        ],
+        "title": "WebToMarkdownResponse"
+      },
+      "YouTubeIntelRequest": {
+        "properties": {
+          "video_url_or_id": {
+            "type": "string",
+            "title": "Video Url Or Id",
+            "description": "YouTube video URL, Shorts URL, or 11-character Video ID.",
+            "default": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          },
+          "languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Languages",
+            "description": "Preferred transcript language codes in priority order.",
+            "default": [
+              "en"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "YouTubeIntelRequest"
+      },
+      "YouTubeIntelResponse": {
+        "properties": {
+          "video_id": {
+            "type": "string",
+            "title": "Video Id"
+          },
+          "full_text": {
+            "type": "string",
+            "title": "Full Text"
+          },
+          "opening_hook_first_30s": {
+            "type": "string",
+            "title": "Opening Hook First 30S"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "estimated_speaking_wpm": {
+            "type": "number",
+            "title": "Estimated Speaking Wpm"
+          },
+          "total_duration_seconds": {
+            "type": "number",
+            "title": "Total Duration Seconds"
+          },
+          "segments": {
+            "items": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Segments"
+          }
+        },
+        "type": "object",
+        "required": [
+          "video_id",
+          "full_text",
+          "opening_hook_first_30s",
+          "word_count",
+          "estimated_speaking_wpm",
+          "total_duration_seconds",
+          "segments"
+        ],
+        "title": "YouTubeIntelResponse"
+      }
+    }
+  }
+}

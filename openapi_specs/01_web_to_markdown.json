@@ -1,0 +1,186 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Web2Markdown & AI Context Extractor API",
+    "description": "Convert any URL into clean, token-efficient Markdown with metadata, reading time, and links for LLMs & RAG pipelines.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/web-to-markdown/extract": {
+      "post": {
+        "tags": [
+          "1. Web2Markdown & AI Context Extractor"
+        ],
+        "summary": "Convert any URL to clean LLM-ready Markdown & metadata",
+        "operationId": "extract_markdown_api_v1_web_to_markdown_extract_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebToMarkdownRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebToMarkdownResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WebToMarkdownRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "Target webpage URL to scrape and convert into clean LLM-ready Markdown.",
+            "default": "https://example.com"
+          },
+          "include_links": {
+            "type": "boolean",
+            "title": "Include Links",
+            "description": "Whether to preserve hyperlinks in the Markdown output.",
+            "default": true
+          },
+          "include_images": {
+            "type": "boolean",
+            "title": "Include Images",
+            "description": "Whether to include image Markdown tags.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "WebToMarkdownRequest"
+      },
+      "WebToMarkdownResponse": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "markdown": {
+            "type": "string",
+            "title": "Markdown"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "estimated_llm_tokens": {
+            "type": "integer",
+            "title": "Estimated Llm Tokens"
+          },
+          "reading_time_minutes": {
+            "type": "number",
+            "title": "Reading Time Minutes"
+          },
+          "links_extracted": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Links Extracted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "title",
+          "description",
+          "markdown",
+          "word_count",
+          "estimated_llm_tokens",
+          "reading_time_minutes",
+          "links_extracted"
+        ],
+        "title": "WebToMarkdownResponse"
+      }
+    }
+  }
+}

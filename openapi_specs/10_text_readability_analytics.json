@@ -1,0 +1,199 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Readability, Keyword Density & Sentiment Scorer API",
+    "description": "Compute Flesch-Kincaid grade level, reading ease, lexical diversity, sentiment polarity, and top SEO keyword density.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/text-analytics/score": {
+      "post": {
+        "tags": [
+          "10. Readability, Sentiment & Content Quality Scorer"
+        ],
+        "summary": "Compute Flesch-Kincaid readability, lexical diversity, sentiment polarity, and top SEO keywords",
+        "operationId": "score_text_analytics_api_v1_text_analytics_score_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextAnalyticsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextAnalyticsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "TextAnalyticsRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Article, ad copy, or LLM output to score for readability, keyword density, and sentiment.",
+            "default": "Building micro-APIs is one of the fastest and most reliable ways for developers to create recurring digital income. By solving specific technical bottlenecks cleanly, your service saves engineering teams hours of work every single week."
+          }
+        },
+        "type": "object",
+        "title": "TextAnalyticsRequest"
+      },
+      "TextAnalyticsResponse": {
+        "properties": {
+          "character_count": {
+            "type": "integer",
+            "title": "Character Count"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "sentence_count": {
+            "type": "integer",
+            "title": "Sentence Count"
+          },
+          "average_words_per_sentence": {
+            "type": "number",
+            "title": "Average Words Per Sentence"
+          },
+          "flesch_reading_ease": {
+            "type": "number",
+            "title": "Flesch Reading Ease"
+          },
+          "flesch_kincaid_grade_level": {
+            "type": "number",
+            "title": "Flesch Kincaid Grade Level"
+          },
+          "reading_difficulty_label": {
+            "type": "string",
+            "title": "Reading Difficulty Label"
+          },
+          "lexical_diversity_ratio": {
+            "type": "number",
+            "title": "Lexical Diversity Ratio"
+          },
+          "sentiment_score": {
+            "type": "number",
+            "title": "Sentiment Score"
+          },
+          "sentiment_label": {
+            "type": "string",
+            "title": "Sentiment Label"
+          },
+          "top_keywords": {
+            "items": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Top Keywords"
+          }
+        },
+        "type": "object",
+        "required": [
+          "character_count",
+          "word_count",
+          "sentence_count",
+          "average_words_per_sentence",
+          "flesch_reading_ease",
+          "flesch_kincaid_grade_level",
+          "reading_difficulty_label",
+          "lexical_diversity_ratio",
+          "sentiment_score",
+          "sentiment_label",
+          "top_keywords"
+        ],
+        "title": "TextAnalyticsResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

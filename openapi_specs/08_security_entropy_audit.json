@@ -1,0 +1,185 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Password Entropy & Secret Leak Scanner API",
+    "description": "Calculate Shannon entropy, GPU crack time, and scan code/text snippets for accidentally leaked API keys and tokens.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/security-audit/evaluate": {
+      "post": {
+        "tags": [
+          "8. Password Entropy & Secret Leak Auditor"
+        ],
+        "summary": "Calculate password entropy, offline GPU crack time, and scan text for leaked API secrets",
+        "operationId": "evaluate_security_api_v1_security_audit_evaluate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityAuditRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityAuditResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "SecurityAuditRequest": {
+        "properties": {
+          "password_or_secret": {
+            "type": "string",
+            "title": "Password Or Secret",
+            "description": "Password string to evaluate for entropy, crack time, and pattern weaknesses.",
+            "default": "Tr0ub4dor&3!2026"
+          },
+          "code_or_text_snippet": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code Or Text Snippet",
+            "description": "Optional code or log snippet to scan for leaked API keys, tokens, and credentials.",
+            "default": "export OPENAI_API_KEY=sk-proj1234567890abcdefghijklmnop"
+          }
+        },
+        "type": "object",
+        "title": "SecurityAuditRequest"
+      },
+      "SecurityAuditResponse": {
+        "properties": {
+          "password_length": {
+            "type": "integer",
+            "title": "Password Length"
+          },
+          "charset_pool_size": {
+            "type": "integer",
+            "title": "Charset Pool Size"
+          },
+          "entropy_bits": {
+            "type": "number",
+            "title": "Entropy Bits"
+          },
+          "strength_rating": {
+            "type": "string",
+            "title": "Strength Rating"
+          },
+          "estimated_offline_crack_time": {
+            "type": "string",
+            "title": "Estimated Offline Crack Time"
+          },
+          "weakness_warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Weakness Warnings"
+          },
+          "leaked_secrets_detected": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Leaked Secrets Detected"
+          }
+        },
+        "type": "object",
+        "required": [
+          "password_length",
+          "charset_pool_size",
+          "entropy_bits",
+          "strength_rating",
+          "estimated_offline_crack_time",
+          "weakness_warnings",
+          "leaked_secrets_detected"
+        ],
+        "title": "SecurityAuditResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
