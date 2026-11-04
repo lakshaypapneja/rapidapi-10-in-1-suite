@@ -5,6 +5,12 @@
     "description": "Compute Flesch-Kincaid grade level, reading ease, lexical diversity, sentiment polarity, and top SEO keyword density.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/text-analytics/score": {
       "post": {

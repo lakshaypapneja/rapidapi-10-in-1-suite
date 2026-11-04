@@ -5,6 +5,12 @@
     "description": "Deterministically strip markdown fences, conversational chatter, trailing commas, and single quotes to repair broken LLM JSON.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/json-repair/repair": {
       "post": {

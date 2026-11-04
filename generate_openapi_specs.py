@@ -85,6 +85,8 @@ INDIVIDUAL_APIS = [
 
 
 def export_all_specs():
+    live_servers = [{"url": "https://rapidapi-10-in-1-suite.onrender.com", "description": "Production Render Cloud Server"}]
+
     # 1. Export unified bundle spec
     bundle_schema = get_openapi(
         title=full_app.title,
@@ -92,6 +94,7 @@ def export_all_specs():
         openapi_version="3.0.3",
         description=full_app.description,
         routes=full_app.routes,
+        servers=live_servers,
     )
     bundle_path = SPECS_DIR / "all_10_apis_bundle.json"
     bundle_path.write_text(json.dumps(bundle_schema, indent=2))
@@ -107,6 +110,7 @@ def export_all_specs():
             openapi_version="3.0.3",
             description=description,
             routes=sub_app.routes,
+            servers=live_servers,
         )
         out_path = SPECS_DIR / filename
         out_path.write_text(json.dumps(schema, indent=2))

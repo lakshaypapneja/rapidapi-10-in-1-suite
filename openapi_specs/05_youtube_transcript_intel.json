@@ -5,6 +5,12 @@
     "description": "Fetch full YouTube transcripts, first-30-second viral hooks, word counts, and speaking pace (WPM) without an API key.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/youtube-intel/transcript": {
       "post": {

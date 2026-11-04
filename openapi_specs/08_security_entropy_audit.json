@@ -5,6 +5,12 @@
     "description": "Calculate Shannon entropy, GPU crack time, and scan code/text snippets for accidentally leaked API keys and tokens.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/security-audit/evaluate": {
       "post": {

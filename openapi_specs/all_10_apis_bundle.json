@@ -5,6 +5,12 @@
     "description": "Production-ready collection of 10 high-demand APIs built for RapidAPI monetization. Includes Web2Markdown, B2B Lead Enrichment, Technical SEO & GEO Audit, Email Intelligence, YouTube Transcript & Hook Extractor, PII Redactor for LLMs, Broken JSON Repair, Password/Secret Leak Auditor, Universal Cron Parser, and Readability/Sentiment Scorer.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/": {
       "get": {

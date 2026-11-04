@@ -5,6 +5,12 @@
     "description": "Audit any webpage for 0-100 Technical SEO score, meta tags, heading structure, JSON-LD schema, and AI-search readiness.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/seo-audit/analyze": {
       "post": {

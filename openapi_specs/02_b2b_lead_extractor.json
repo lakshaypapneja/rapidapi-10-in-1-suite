@@ -5,6 +5,12 @@
     "description": "Extract emails, phone numbers, social media profiles, key pages, and tech stack from any company website.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/lead-extractor/enrich": {
       "post": {

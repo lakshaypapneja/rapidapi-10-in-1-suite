@@ -5,6 +5,12 @@
     "description": "Convert any URL into clean, token-efficient Markdown with metadata, reading time, and links for LLMs & RAG pipelines.",
     "version": "1.0.0"
   },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
   "paths": {
     "/api/v1/web-to-markdown/extract": {
       "post": {
