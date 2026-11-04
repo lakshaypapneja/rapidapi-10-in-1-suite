@@ -106,11 +106,9 @@
                 },
                 {
                   "type": "boolean"
-                },
-                {
-                  "type": "null"
                 }
-              ]
+              ],
+              "nullable": true
             },
             "type": "object",
             "title": "Meta"

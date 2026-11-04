@@ -112,12 +112,10 @@
               },
               {
                 "type": "boolean"
-              },
-              {
-                "type": "null"
               }
             ],
-            "title": "Parsed Data"
+            "title": "Parsed Data",
+            "nullable": true
           },
           "repairs_applied": {
             "items": {

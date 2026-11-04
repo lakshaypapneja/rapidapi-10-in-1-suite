@@ -79,15 +79,9 @@
             "title": "Is Valid Syntax"
           },
           "domain": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Domain"
+            "title": "Domain",
+            "type": "string",
+            "nullable": true
           },
           "has_mx_records": {
             "type": "boolean",
@@ -117,15 +111,9 @@
             "title": "Is B2B Corporate"
           },
           "suggested_typo_fix": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Suggested Typo Fix"
+            "title": "Suggested Typo Fix",
+            "type": "string",
+            "nullable": true
           },
           "deliverability_risk_score": {
             "type": "integer",

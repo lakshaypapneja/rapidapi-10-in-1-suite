@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from typing import Any
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
@@ -84,8 +85,77 @@ INDIVIDUAL_APIS = [
 ]
 
 
+def _sanitize_for_rapidapi_oas30(node: Any) -> Any:
+    """
+    Convert OpenAPI 3.1 constructs (like {"type": "null"} inside anyOf/oneOf)
+    into strict OpenAPI 3.0.3 schemas required by RapidAPI Studio's validator,
+    and remove internal x-rapidapi-proxy-secret header parameters.
+    """
+    if isinstance(node, list):
+        return [_sanitize_for_rapidapi_oas30(item) for item in node]
+
+    if not isinstance(node, dict):
+        return node
+
+    # Remove internal x-rapidapi-proxy-secret header from parameters list
+    if "parameters" in node and isinstance(node["parameters"], list):
+        filtered_params = [
+            p
+            for p in node["parameters"]
+            if not (isinstance(p, dict) and p.get("name", "").lower() == "x-rapidapi-proxy-secret")
+        ]
+        if filtered_params:
+            node["parameters"] = _sanitize_for_rapidapi_oas30(filtered_params)
+        else:
+            del node["parameters"]
+
+    # Handle anyOf / oneOf containing {"type": "null"}
+    for union_key in ("anyOf", "oneOf"):
+        if union_key in node and isinstance(node[union_key], list):
+            items = node[union_key]
+            non_null_items = [
+                item
+                for item in items
+                if not (isinstance(item, dict) and item.get("type") == "null")
+            ]
+            has_null = len(non_null_items) < len(items)
+
+            if len(non_null_items) == 0:
+                del node[union_key]
+                node["type"] = "string"
+                node["nullable"] = True
+            elif len(non_null_items) == 1:
+                del node[union_key]
+                single = _sanitize_for_rapidapi_oas30(non_null_items[0])
+                for k, v in single.items():
+                    if k not in node:
+                        node[k] = v
+                if has_null:
+                    node["nullable"] = True
+            else:
+                # Multiple non-null types (e.g. string | int | bool): RapidAPI prefers a single object/string or clean anyOf without null
+                node[union_key] = [_sanitize_for_rapidapi_oas30(i) for i in non_null_items]
+                if has_null:
+                    node["nullable"] = True
+
+    # Recursively sanitize remaining keys
+    for key, val in list(node.items()):
+        if key == "type" and val == "null":
+            node[key] = "string"
+            node["nullable"] = True
+        else:
+            node[key] = _sanitize_for_rapidapi_oas30(val)
+
+    return node
+
+
 def export_all_specs():
-    live_servers = [{"url": "https://rapidapi-10-in-1-suite.onrender.com", "description": "Production Render Cloud Server"}]
+    live_servers = [
+        {
+            "url": "https://rapidapi-10-in-1-suite.onrender.com",
+            "description": "Production Render Cloud Server",
+        }
+    ]
 
     # 1. Export unified bundle spec
     bundle_schema = get_openapi(
@@ -96,6 +166,7 @@ def export_all_specs():
         routes=full_app.routes,
         servers=live_servers,
     )
+    bundle_schema = _sanitize_for_rapidapi_oas30(bundle_schema)
     bundle_path = SPECS_DIR / "all_10_apis_bundle.json"
     bundle_path.write_text(json.dumps(bundle_schema, indent=2))
     print(f"Exported: {bundle_path.name}")
@@ -112,6 +183,7 @@ def export_all_specs():
             routes=sub_app.routes,
             servers=live_servers,
         )
+        schema = _sanitize_for_rapidapi_oas30(schema)
         out_path = SPECS_DIR / filename
         out_path.write_text(json.dumps(schema, indent=2))
         print(f"Exported: {out_path.name}")
