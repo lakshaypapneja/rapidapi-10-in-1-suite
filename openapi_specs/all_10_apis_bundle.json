@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "AI & Developer 20-in-1 Utility Suite (RapidAPI Ready)",
-    "description": "Production-ready collection of 20 high-demand APIs built for RapidAPI monetization with $0.00 COGS. Includes Web2Markdown, B2B Lead Enrichment, SEO Audit, Email Verifier, YouTube Transcript, PII Redactor, JSON Repair, Password Auditor, Cron Parser, Text Analytics, Token Cost Estimator, Markdown-to-TTS Cleaner, RAG Chunker, Prompt Injection Scanner, Vector Math, Citation Extractor, Prompt Template Hydrator, Text Deduplicator, Regex Tester, and Code Language Detector.",
+    "title": "AI & Developer 100-in-1 Mega Utility Suite (RapidAPI Ready)",
+    "description": "The ultimate 100-in-1 developer utility suite for AI engineers, SaaS founders, and automation builders. Includes Web Scraping, AI Agents/RAG tools, Security/Crypto, Phone/IBAN/Card Validation, Format Converters, Math/Finance, QR Code generation, Mock Data, and more \u2014 all with zero external dependencies and 100% profit margin.",
     "version": "1.1.0"
   },
   "servers": [
@@ -930,10 +930,3531 @@
           }
         }
       }
+    },
+    "/api/v1/web-intel/robots-parser": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "21. Robots.txt and Sitemap Directives Parser",
+        "operationId": "parse_robots_api_v1_web_intel_robots_parser_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RobotsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RobotsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/opengraph-scraper": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "22. OpenGraph & Twitter Card Preview Scraper",
+        "operationId": "scrape_opengraph_api_v1_web_intel_opengraph_scraper_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OgRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OgResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/favicon-extractor": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "23. Favicon, Apple Touch Icon & Logo Extractor",
+        "operationId": "extract_favicons_api_v1_web_intel_favicon_extractor_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FaviconRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FaviconResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/dns-lookup": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "24. Universal DNS Record Resolver (A, MX, TXT, NS, etc.)",
+        "operationId": "resolve_dns_api_v1_web_intel_dns_lookup_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DnsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DnsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/redirect-tracer": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "25. HTTP 301/302 Redirect Chain and Affiliate Tracer",
+        "operationId": "trace_redirects_api_v1_web_intel_redirect_tracer_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RedirectRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedirectResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/ssl-checker": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "26. SSL / HTTPS Security & HSTS Header Verifier",
+        "operationId": "check_ssl_api_v1_web_intel_ssl_checker_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SslRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SslResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/headers-inspector": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "27. Raw HTTP Response Headers & Server Detector",
+        "operationId": "inspect_headers_api_v1_web_intel_headers_inspector_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HeadersRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HeadersResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/url-parser": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "28. URL Parser & Query Parameter Deconstructor",
+        "operationId": "parse_url_components_api_v1_web_intel_url_parser_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UrlParseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UrlParseResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/domain-extractor": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "29. Domain and Subdomain Regex Extractor",
+        "operationId": "extract_domains_api_v1_web_intel_domain_extractor_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DomainExtractRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainExtractResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/broken-link-checker": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "30. Single-Page Broken Link Status Scanner",
+        "operationId": "check_broken_links_api_v1_web_intel_broken_link_checker_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BrokenLinkRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BrokenLinkResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/canonical-cleaner": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "31. Marketing & UTM Tracking Parameter Stripper",
+        "operationId": "clean_canonical_api_v1_web_intel_canonical_cleaner_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanonicalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanonicalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/mx-risk-scorer": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "32. Mail Exchanger (MX) Deliverability & Reputation Scorer",
+        "operationId": "score_mx_risk_api_v1_web_intel_mx_risk_scorer_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MxRiskRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MxRiskResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/tech-fingerprint": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "33. Server Header & Infrastructure Fingerprinter",
+        "operationId": "fingerprint_tech_api_v1_web_intel_tech_fingerprint_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TechDetectRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TechDetectResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/domain-tld-parser": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "34. Root Domain, Subdomain & Multi-Part TLD Parser",
+        "operationId": "parse_tld_api_v1_web_intel_domain_tld_parser_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TldParseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TldParseResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web-intel/rss-feed-parser": {
+      "post": {
+        "tags": [
+          "Web & Domain Intelligence (APIs 21-35)"
+        ],
+        "summary": "35. RSS and Atom XML Feed to Clean JSON Converter",
+        "operationId": "parse_rss_api_v1_web_intel_rss_feed_parser_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RssRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RssResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/hash-generator": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "36. Multi-Algorithm Hash Generator (MD5, SHA1, SHA256, SHA512)",
+        "operationId": "generate_hashes_api_v1_security_hash_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HashRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HashResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/hmac-signer": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "37. Webhook & API HMAC Signature Generator",
+        "operationId": "sign_hmac_api_v1_security_hmac_signer_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HmacRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HmacResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/jwt-decoder": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "38. JWT Header, Claims & Expiration Inspector",
+        "operationId": "decode_jwt_api_v1_security_jwt_decoder_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JwtRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/api-key-generator": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "39. Cryptographic API Key and Secret Token Generator",
+        "operationId": "generate_api_key_api_v1_security_api_key_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenGenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenGenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/uuid-generator": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "40. UUID v4 Cryptographically Secure Batch Generator",
+        "operationId": "generate_uuids_api_v1_security_uuid_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UuidGenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UuidGenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/uuid-validator": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "41. UUID Format & Version Inspector",
+        "operationId": "check_uuid_api_v1_security_uuid_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UuidCheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UuidCheckResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/password-generator": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "42. Custom Policy Password Generator",
+        "operationId": "generate_password_api_v1_security_password_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PwdGenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PwdGenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/base64-converter": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "43. Base64 UTF-8 Text Encoder and Decoder",
+        "operationId": "convert_base64_api_v1_security_base64_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/B64Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/B64Response"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/hex-converter": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "44. Hexadecimal String Encoder and Decoder",
+        "operationId": "convert_hex_api_v1_security_hex_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HexRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HexResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/url-encoder-decoder": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "45. RFC 3986 Percent-Encoding URL Encoder and Decoder",
+        "operationId": "codec_url_api_v1_security_url_encoder_decoder_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UrlCodecRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UrlCodecResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/rot13-cipher": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "46. ROT13 Reversible Obfuscation Cipher",
+        "operationId": "cipher_rot13_api_v1_security_rot13_cipher_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rot13Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rot13Response"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/passphrase-generator": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "47. Memorizable Diceware-Style Passphrase Generator",
+        "operationId": "generate_passphrase_api_v1_security_passphrase_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PassphraseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PassphraseResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/security-headers-scanner": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "48. Web Application Security Headers Auditor (HSTS, CSP, etc.)",
+        "operationId": "scan_security_headers_api_v1_security_security_headers_scanner_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecHeaderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecHeaderResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/sqli-detector": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "49. Heuristic SQL Injection Signature Detector",
+        "operationId": "detect_sqli_api_v1_security_sqli_detector_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SqliRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SqliResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/security/xss-detector": {
+      "post": {
+        "tags": [
+          "Security, Crypto & Auth (APIs 36-50)"
+        ],
+        "summary": "50. Cross-Site Scripting (XSS) Pattern and Payload Detector",
+        "operationId": "detect_xss_api_v1_security_xss_detector_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XssRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XssResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/phone-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "51. International Phone Number & E.164 Formatter",
+        "operationId": "validate_phone_api_v1_validation_phone_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhoneRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhoneResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/credit-card-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "52. Credit Card Luhn Checksum & Brand Detector",
+        "operationId": "validate_card_api_v1_validation_credit_card_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CardRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CardResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/iban-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "53. International Bank Account Number (IBAN) Checksum Validator",
+        "operationId": "validate_iban_api_v1_validation_iban_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IbanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IbanResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/ip-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "54. IPv4 / IPv6 & CIDR Structure and Private Network Inspector",
+        "operationId": "validate_ip_api_v1_validation_ip_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IpRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/user-agent-parser": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "55. Comprehensive User-Agent OS, Browser & Device Deconstructor",
+        "operationId": "parse_user_agent_api_v1_validation_user_agent_parser_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UaResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/semver-comparator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "56. Semantic Versioning (SemVer) Validator and Comparator",
+        "operationId": "compare_semver_api_v1_validation_semver_comparator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SemVerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SemVerResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/mac-address-formatter": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "57. Network MAC Address Validator and Canonical Formatter",
+        "operationId": "format_mac_api_v1_validation_mac_address_formatter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MacRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MacResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/iso-date-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "58. ISO 8601 Timestamp Validator and Unix Epoch Converter",
+        "operationId": "validate_iso_date_api_v1_validation_iso_date_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsoDateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IsoDateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/color-converter": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "59. Color Code Transformer (HEX to RGB and HSL)",
+        "operationId": "convert_color_api_v1_validation_color_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ColorRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ColorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/text-normalizer": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "60. Whitespace and Line Break Normalizer",
+        "operationId": "normalize_text_api_v1_validation_text_normalizer_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextNormRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextNormResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/isbn-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "61. ISBN-10 & ISBN-13 Checksum Validator",
+        "operationId": "validate_isbn_api_v1_validation_isbn_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IsbnRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IsbnResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/mime-detector": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "62. File Extension to Standard IANA MIME Type Resolver",
+        "operationId": "detect_mime_api_v1_validation_mime_detector_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MimeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MimeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/json-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "63. JSON Syntax and Structural Integrity Checker",
+        "operationId": "check_json_validity_api_v1_validation_json_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonValidRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonValidResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/postal-code-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "64. International Postal Code Syntax Formatter",
+        "operationId": "validate_postal_api_v1_validation_postal_code_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/validation/geo-coordinate-validator": {
+      "post": {
+        "tags": [
+          "Data Validation & Cleansing (APIs 51-65)"
+        ],
+        "summary": "65. Geographic Latitude and Longitude Boundary Validator",
+        "operationId": "validate_coordinates_api_v1_validation_geo_coordinate_validator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GeoCoordRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeoCoordResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/json-to-csv": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "66. JSON Array to Tabular CSV Converter",
+        "operationId": "json_to_csv_api_v1_transformers_json_to_csv_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonCsvRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonCsvResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/csv-to-json": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "67. Tabular CSV to Structured JSON Array Parser",
+        "operationId": "csv_to_json_api_v1_transformers_csv_to_json_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CsvJsonRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CsvJsonResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/yaml-to-json": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "68. YAML Configuration to Formatted JSON Converter",
+        "operationId": "yaml_to_json_api_v1_transformers_yaml_to_json_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/YamlJsonRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YamlJsonResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/json-to-yaml": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "69. JSON Object to Clean YAML Converter",
+        "operationId": "json_to_yaml_api_v1_transformers_json_to_yaml_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonYamlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonYamlResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/xml-to-json": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "70. Simple XML to Structured JSON Converter",
+        "operationId": "xml_to_json_api_v1_transformers_xml_to_json_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XmlJsonRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XmlJsonResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/html-table-to-json": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "71. HTML Table Scraper to Structured JSON Records",
+        "operationId": "table_to_json_api_v1_transformers_html_table_to_json_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HtmlTableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HtmlTableResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/text-case-converter": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "72. Universal Programming Casing Converter (camel, snake, kebab, etc.)",
+        "operationId": "convert_case_api_v1_transformers_text_case_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CaseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/json-formatter": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "73. JSON Minifier and Formatted Beautifier",
+        "operationId": "format_json_api_v1_transformers_json_formatter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonFormatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonFormatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/sql-formatter": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "74. SQL Query Keywords Uppercaser and Indenter",
+        "operationId": "format_sql_api_v1_transformers_sql_formatter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SqlFormatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SqlFormatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/markdown-to-html": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "75. Markdown to Sanitized Semantic HTML Converter",
+        "operationId": "markdown_to_html_api_v1_transformers_markdown_to_html_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MdHtmlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MdHtmlResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/binary-converter": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "76. Raw 8-bit Binary Byte Array to Text Converter",
+        "operationId": "convert_binary_api_v1_transformers_binary_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BinaryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BinaryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/json-flattener": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "77. Deeply Nested JSON Object to Dot-Notation Flattener",
+        "operationId": "flatten_json_api_v1_transformers_json_flattener_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonFlattenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonFlattenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/word-frequency-counter": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "78. Lexical Word Count and Term Frequency Ranking",
+        "operationId": "count_word_freq_api_v1_transformers_word_frequency_counter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WordFreqRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WordFreqResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/slug-generator": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "79. SEO URL-Safe Slug Generator with Unicode Diacritics Removal",
+        "operationId": "generate_slug_api_v1_transformers_slug_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SlugifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SlugifyResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/transformers/text-diff": {
+      "post": {
+        "tags": [
+          "Data Transformers & Formats (APIs 66-80)"
+        ],
+        "summary": "80. Unified Text & Code Difference Comparator",
+        "operationId": "compare_text_diff_api_v1_transformers_text_diff_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiffRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DiffResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/timezone-converter": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "81. Universal IANA Timezone Timestamp Converter",
+        "operationId": "convert_timezone_api_v1_math_calc_timezone_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TzConvertRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TzConvertResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/unit-converter": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "82. Universal Distance, Weight, Temp & Data Unit Converter",
+        "operationId": "convert_units_api_v1_math_calc_unit_converter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/compound-interest": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "83. Compound Interest and Future Value Calculator",
+        "operationId": "calc_compound_api_v1_math_calc_compound_interest_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/loan-amortization": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "84. Mortgage & Loan Monthly Payment Amortization Calculator",
+        "operationId": "calc_loan_api_v1_math_calc_loan_amortization_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/percentage-calculator": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "85. Retail Price Discount and Percentage Delta Calculator",
+        "operationId": "calc_discount_api_v1_math_calc_percentage_calculator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PercentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PercentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/descriptive-statistics": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "86. Array Descriptive Statistics (Mean, Median, Variance, StdDev)",
+        "operationId": "calc_stats_api_v1_math_calc_descriptive_statistics_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StatsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/byte-storage-formatter": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "87. Raw Byte Count to Human-Readable Units (KB, MB, GB, TB)",
+        "operationId": "format_bytes_api_v1_math_calc_byte_storage_formatter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ByteFormatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ByteFormatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/math-evaluator": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "88. Safe Arithmetic Expression Evaluator (No Eval Vulnerability)",
+        "operationId": "eval_math_api_v1_math_calc_math_evaluator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MathEvalRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MathEvalResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/relative-time-formatter": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "89. Epoch Timestamp to Human Relative Time ('2 hours ago')",
+        "operationId": "format_relative_time_api_v1_math_calc_relative_time_formatter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelativeTimeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelativeTimeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/math-calc/geometry-calculator": {
+      "post": {
+        "tags": [
+          "Math, Finance & Timezone Converters (APIs 81-90)"
+        ],
+        "summary": "90. Geometric Area and Perimeter Solver for Circles, Rectangles, Triangles",
+        "operationId": "calc_geometry_api_v1_math_calc_geometry_calculator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GeometryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeometryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/qr-code-generator": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "91. High-Resolution Dynamic QR Code Generator (Base64 PNG)",
+        "operationId": "generate_qr_api_v1_content_mock_qr_code_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QrRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QrResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/lorem-ipsum-generator": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "92. Configurable Placeholder Lorem Ipsum Paragraph Generator",
+        "operationId": "generate_lorem_api_v1_content_mock_lorem_ipsum_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoremRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoremResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/fake-user-generator": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "93. Realistic Mock User & Person Identity Profile Generator",
+        "operationId": "generate_fake_users_api_v1_content_mock_fake_user_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FakeUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FakeUserResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/color-palette-generator": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "94. Harmonious Color Palette & Complementary Scheme Generator",
+        "operationId": "generate_palette_api_v1_content_mock_color_palette_generator_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaletteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaletteResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/seo-schema-builder": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "95. SEO Article & Webpage Schema.org JSON-LD and Meta Tag Builder",
+        "operationId": "build_schema_api_v1_content_mock_seo_schema_builder_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaGenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaGenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/profanity-filter": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "96. Multi-Word Profanity Masker & Content Moderation Filter",
+        "operationId": "filter_profanity_api_v1_content_mock_profanity_filter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfanityRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfanityResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/social-char-counter": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "97. Twitter, LinkedIn & Instagram Character Count and Length Checker",
+        "operationId": "check_social_limits_api_v1_content_mock_social_char_counter_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SocialLimitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialLimitResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/markdown-table-builder": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "98. Clean Markdown Table Generator from Headers and Row Arrays",
+        "operationId": "build_md_table_api_v1_content_mock_markdown_table_builder_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MdTableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MdTableResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/developer-quote": {
+      "post": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "99. Curated Software Engineering & Philosophy Quote Generator",
+        "operationId": "get_quote_api_v1_content_mock_developer_quote_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/content-mock/suite-summary": {
+      "get": {
+        "tags": [
+          "Content, Media & Mock Data (APIs 91-100)"
+        ],
+        "summary": "100. 100-in-1 Mega Developer API Suite Health and Specification Summary",
+        "operationId": "get_suite_summary_api_v1_content_mock_suite_summary_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuiteStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "B64Request": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "Hello RapidAPI World!"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode",
+            "description": "'encode' or 'decode'",
+            "default": "encode"
+          }
+        },
+        "type": "object",
+        "title": "B64Request"
+      },
+      "B64Response": {
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "Result"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result",
+          "mode"
+        ],
+        "title": "B64Response"
+      },
+      "BinaryRequest": {
+        "properties": {
+          "input_data": {
+            "type": "string",
+            "title": "Input Data",
+            "default": "RapidAPI"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode",
+            "description": "'text_to_binary' or 'binary_to_text'",
+            "default": "text_to_binary"
+          }
+        },
+        "type": "object",
+        "title": "BinaryRequest"
+      },
+      "BinaryResponse": {
+        "properties": {
+          "output": {
+            "type": "string",
+            "title": "Output"
+          }
+        },
+        "type": "object",
+        "required": [
+          "output"
+        ],
+        "title": "BinaryResponse"
+      },
+      "BrokenLinkRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://example.com"
+          }
+        },
+        "type": "object",
+        "title": "BrokenLinkRequest"
+      },
+      "BrokenLinkResponse": {
+        "properties": {
+          "scanned_url": {
+            "type": "string",
+            "title": "Scanned Url"
+          },
+          "total_links": {
+            "type": "integer",
+            "title": "Total Links"
+          },
+          "broken_count": {
+            "type": "integer",
+            "title": "Broken Count"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/LinkStatus"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scanned_url",
+          "total_links",
+          "broken_count",
+          "results"
+        ],
+        "title": "BrokenLinkResponse"
+      },
+      "ByteFormatRequest": {
+        "properties": {
+          "bytes_count": {
+            "type": "integer",
+            "title": "Bytes Count",
+            "default": 1073741824
+          }
+        },
+        "type": "object",
+        "title": "ByteFormatRequest"
+      },
+      "ByteFormatResponse": {
+        "properties": {
+          "human_readable": {
+            "type": "string",
+            "title": "Human Readable"
+          },
+          "in_kb": {
+            "type": "number",
+            "title": "In Kb"
+          },
+          "in_mb": {
+            "type": "number",
+            "title": "In Mb"
+          },
+          "in_gb": {
+            "type": "number",
+            "title": "In Gb"
+          }
+        },
+        "type": "object",
+        "required": [
+          "human_readable",
+          "in_kb",
+          "in_mb",
+          "in_gb"
+        ],
+        "title": "ByteFormatResponse"
+      },
+      "CanonicalRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://example.com/index.html?utm_source=twitter"
+          }
+        },
+        "type": "object",
+        "title": "CanonicalRequest"
+      },
+      "CanonicalResponse": {
+        "properties": {
+          "submitted_url": {
+            "type": "string",
+            "title": "Submitted Url"
+          },
+          "clean_canonical_url": {
+            "type": "string",
+            "title": "Clean Canonical Url"
+          },
+          "stripped_params": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Stripped Params"
+          }
+        },
+        "type": "object",
+        "required": [
+          "submitted_url",
+          "clean_canonical_url",
+          "stripped_params"
+        ],
+        "title": "CanonicalResponse"
+      },
+      "CardRequest": {
+        "properties": {
+          "card_number": {
+            "type": "string",
+            "title": "Card Number",
+            "default": "4532 0151 1283 0366"
+          }
+        },
+        "type": "object",
+        "title": "CardRequest"
+      },
+      "CardResponse": {
+        "properties": {
+          "is_valid_luhn": {
+            "type": "boolean",
+            "title": "Is Valid Luhn"
+          },
+          "card_brand": {
+            "type": "string",
+            "title": "Card Brand"
+          },
+          "masked_number": {
+            "type": "string",
+            "title": "Masked Number"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid_luhn",
+          "card_brand",
+          "masked_number"
+        ],
+        "title": "CardResponse"
+      },
+      "CaseRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "Rapid API 100 Suite"
+          }
+        },
+        "type": "object",
+        "title": "CaseRequest"
+      },
+      "CaseResponse": {
+        "properties": {
+          "camel_case": {
+            "type": "string",
+            "title": "Camel Case"
+          },
+          "snake_case": {
+            "type": "string",
+            "title": "Snake Case"
+          },
+          "pascal_case": {
+            "type": "string",
+            "title": "Pascal Case"
+          },
+          "kebab_case": {
+            "type": "string",
+            "title": "Kebab Case"
+          },
+          "constant_case": {
+            "type": "string",
+            "title": "Constant Case"
+          }
+        },
+        "type": "object",
+        "required": [
+          "camel_case",
+          "snake_case",
+          "pascal_case",
+          "kebab_case",
+          "constant_case"
+        ],
+        "title": "CaseResponse"
+      },
       "ChunkItem": {
         "properties": {
           "chunk_index": {
@@ -1179,6 +4700,84 @@
         ],
         "title": "CodeDetectResponse"
       },
+      "ColorRequest": {
+        "properties": {
+          "hex_code": {
+            "type": "string",
+            "title": "Hex Code",
+            "default": "#4F46E5"
+          }
+        },
+        "type": "object",
+        "title": "ColorRequest"
+      },
+      "ColorResponse": {
+        "properties": {
+          "hex": {
+            "type": "string",
+            "title": "Hex"
+          },
+          "rgb": {
+            "type": "string",
+            "title": "Rgb"
+          },
+          "hsl": {
+            "type": "string",
+            "title": "Hsl"
+          }
+        },
+        "type": "object",
+        "required": [
+          "hex",
+          "rgb",
+          "hsl"
+        ],
+        "title": "ColorResponse"
+      },
+      "CompoundRequest": {
+        "properties": {
+          "principal": {
+            "type": "number",
+            "title": "Principal",
+            "default": 1000.0
+          },
+          "annual_rate_percent": {
+            "type": "number",
+            "title": "Annual Rate Percent",
+            "default": 8.0
+          },
+          "years": {
+            "type": "integer",
+            "title": "Years",
+            "default": 5
+          },
+          "compound_frequency_per_year": {
+            "type": "integer",
+            "title": "Compound Frequency Per Year",
+            "default": 12
+          }
+        },
+        "type": "object",
+        "title": "CompoundRequest"
+      },
+      "CompoundResponse": {
+        "properties": {
+          "future_value": {
+            "type": "number",
+            "title": "Future Value"
+          },
+          "total_interest_earned": {
+            "type": "number",
+            "title": "Total Interest Earned"
+          }
+        },
+        "type": "object",
+        "required": [
+          "future_value",
+          "total_interest_earned"
+        ],
+        "title": "CompoundResponse"
+      },
       "CosineRequest": {
         "properties": {
           "vector_a": {
@@ -1303,6 +4902,39 @@
         ],
         "title": "CronScheduleResponse"
       },
+      "CsvJsonRequest": {
+        "properties": {
+          "csv_string": {
+            "type": "string",
+            "title": "Csv String",
+            "default": "name,role,level\nAlice,Engineer,3\nBob,Designer,2"
+          }
+        },
+        "type": "object",
+        "title": "CsvJsonRequest"
+      },
+      "CsvJsonResponse": {
+        "properties": {
+          "json_data": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Json Data"
+          },
+          "total_records": {
+            "type": "integer",
+            "title": "Total Records"
+          }
+        },
+        "type": "object",
+        "required": [
+          "json_data",
+          "total_records"
+        ],
+        "title": "CsvJsonResponse"
+      },
       "DedupeRequest": {
         "properties": {
           "text": {
@@ -1348,6 +4980,118 @@
           "duplicates_removed"
         ],
         "title": "DedupeResponse"
+      },
+      "DiffRequest": {
+        "properties": {
+          "original_text": {
+            "type": "string",
+            "title": "Original Text",
+            "default": "API v1.0.0 is live."
+          },
+          "modified_text": {
+            "type": "string",
+            "title": "Modified Text",
+            "default": "API v1.1.0 is live with 100 endpoints."
+          }
+        },
+        "type": "object",
+        "title": "DiffRequest"
+      },
+      "DiffResponse": {
+        "properties": {
+          "is_identical": {
+            "type": "boolean",
+            "title": "Is Identical"
+          },
+          "changes_detected": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Changes Detected"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_identical",
+          "changes_detected"
+        ],
+        "title": "DiffResponse"
+      },
+      "DnsRequest": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "default": "google.com"
+          },
+          "record_type": {
+            "type": "string",
+            "title": "Record Type",
+            "description": "A, AAAA, MX, TXT, NS, or CNAME",
+            "default": "A"
+          }
+        },
+        "type": "object",
+        "title": "DnsRequest"
+      },
+      "DnsResponse": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "record_type": {
+            "type": "string",
+            "title": "Record Type"
+          },
+          "records": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Records"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "record_type",
+          "records"
+        ],
+        "title": "DnsResponse"
+      },
+      "DomainExtractRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "Visit api.stripe.com, dashboard.render.com and staging.app.io"
+          }
+        },
+        "type": "object",
+        "title": "DomainExtractRequest"
+      },
+      "DomainExtractResponse": {
+        "properties": {
+          "total_found": {
+            "type": "integer",
+            "title": "Total Found"
+          },
+          "domains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Domains"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_found",
+          "domains"
+        ],
+        "title": "DomainExtractResponse"
       },
       "EmailVerifyRequest": {
         "properties": {
@@ -1434,6 +5178,199 @@
         ],
         "title": "EmailVerifyResponse"
       },
+      "FakeUser": {
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "title": "First Name"
+          },
+          "last_name": {
+            "type": "string",
+            "title": "Last Name"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          }
+        },
+        "type": "object",
+        "required": [
+          "first_name",
+          "last_name",
+          "email",
+          "username",
+          "role"
+        ],
+        "title": "FakeUser"
+      },
+      "FakeUserRequest": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Count",
+            "default": 3
+          }
+        },
+        "type": "object",
+        "title": "FakeUserRequest"
+      },
+      "FakeUserResponse": {
+        "properties": {
+          "users": {
+            "items": {
+              "$ref": "#/components/schemas/FakeUser"
+            },
+            "type": "array",
+            "title": "Users"
+          }
+        },
+        "type": "object",
+        "required": [
+          "users"
+        ],
+        "title": "FakeUserResponse"
+      },
+      "FaviconRequest": {
+        "properties": {
+          "domain_or_url": {
+            "type": "string",
+            "title": "Domain Or Url",
+            "default": "https://stripe.com"
+          }
+        },
+        "type": "object",
+        "title": "FaviconRequest"
+      },
+      "FaviconResponse": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "favicons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Favicons"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "favicons"
+        ],
+        "title": "FaviconResponse"
+      },
+      "FeedItem": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "link": {
+            "type": "string",
+            "title": "Link"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "link"
+        ],
+        "title": "FeedItem"
+      },
+      "GeoCoordRequest": {
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "title": "Latitude",
+            "default": 37.7749
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude",
+            "default": -122.4194
+          }
+        },
+        "type": "object",
+        "title": "GeoCoordRequest"
+      },
+      "GeoCoordResponse": {
+        "properties": {
+          "is_valid_coordinates": {
+            "type": "boolean",
+            "title": "Is Valid Coordinates"
+          },
+          "hemisphere": {
+            "type": "string",
+            "title": "Hemisphere"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid_coordinates",
+          "hemisphere"
+        ],
+        "title": "GeoCoordResponse"
+      },
+      "GeometryRequest": {
+        "properties": {
+          "shape": {
+            "type": "string",
+            "title": "Shape",
+            "description": "'rectangle', 'circle', or 'triangle'",
+            "default": "rectangle"
+          },
+          "dimension_a": {
+            "type": "number",
+            "title": "Dimension A",
+            "description": "width or radius or base",
+            "default": 10.0
+          },
+          "dimension_b": {
+            "type": "number",
+            "title": "Dimension B",
+            "description": "height or 0.0 for circle",
+            "default": 5.0
+          }
+        },
+        "type": "object",
+        "title": "GeometryRequest"
+      },
+      "GeometryResponse": {
+        "properties": {
+          "shape": {
+            "type": "string",
+            "title": "Shape"
+          },
+          "area": {
+            "type": "number",
+            "title": "Area"
+          },
+          "perimeter": {
+            "type": "number",
+            "title": "Perimeter"
+          }
+        },
+        "type": "object",
+        "required": [
+          "shape",
+          "area",
+          "perimeter"
+        ],
+        "title": "GeometryResponse"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -1446,6 +5383,200 @@
         },
         "type": "object",
         "title": "HTTPValidationError"
+      },
+      "HashRequest": {
+        "properties": {
+          "input_text": {
+            "type": "string",
+            "title": "Input Text",
+            "default": "Antigravity RapidAPI Suite"
+          }
+        },
+        "type": "object",
+        "title": "HashRequest"
+      },
+      "HashResponse": {
+        "properties": {
+          "md5": {
+            "type": "string",
+            "title": "Md5"
+          },
+          "sha1": {
+            "type": "string",
+            "title": "Sha1"
+          },
+          "sha256": {
+            "type": "string",
+            "title": "Sha256"
+          },
+          "sha512": {
+            "type": "string",
+            "title": "Sha512"
+          }
+        },
+        "type": "object",
+        "required": [
+          "md5",
+          "sha1",
+          "sha256",
+          "sha512"
+        ],
+        "title": "HashResponse"
+      },
+      "HeadersRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://example.com"
+          }
+        },
+        "type": "object",
+        "title": "HeadersRequest"
+      },
+      "HeadersResponse": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "status_code": {
+            "type": "integer",
+            "title": "Status Code"
+          },
+          "headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Headers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "status_code",
+          "headers"
+        ],
+        "title": "HeadersResponse"
+      },
+      "HexRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "RapidAPI 100"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode",
+            "description": "'encode' or 'decode'",
+            "default": "encode"
+          }
+        },
+        "type": "object",
+        "title": "HexRequest"
+      },
+      "HexResponse": {
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "Result"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result",
+          "mode"
+        ],
+        "title": "HexResponse"
+      },
+      "HmacRequest": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "order_id=12345&amount=99"
+          },
+          "secret_key": {
+            "type": "string",
+            "title": "Secret Key",
+            "default": "super_secret_webhook_key"
+          },
+          "algorithm": {
+            "type": "string",
+            "title": "Algorithm",
+            "description": "sha256, sha512, or sha1",
+            "default": "sha256"
+          }
+        },
+        "type": "object",
+        "title": "HmacRequest"
+      },
+      "HmacResponse": {
+        "properties": {
+          "algorithm": {
+            "type": "string",
+            "title": "Algorithm"
+          },
+          "hex_digest": {
+            "type": "string",
+            "title": "Hex Digest"
+          },
+          "base64_digest": {
+            "type": "string",
+            "title": "Base64 Digest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "algorithm",
+          "hex_digest",
+          "base64_digest"
+        ],
+        "title": "HmacResponse"
+      },
+      "HtmlTableRequest": {
+        "properties": {
+          "html_snippet": {
+            "type": "string",
+            "title": "Html Snippet",
+            "default": "<table><thead><tr><th>Plan</th><th>Price</th></tr></thead><tbody><tr><td>Basic</td><td>$0</td></tr><tr><td>Pro</td><td>$9.99</td></tr></tbody></table>"
+          }
+        },
+        "type": "object",
+        "title": "HtmlTableRequest"
+      },
+      "HtmlTableResponse": {
+        "properties": {
+          "headers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Headers"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Rows"
+          }
+        },
+        "type": "object",
+        "required": [
+          "headers",
+          "rows"
+        ],
+        "title": "HtmlTableResponse"
       },
       "HydrateRequest": {
         "properties": {
@@ -1512,6 +5643,40 @@
         ],
         "title": "HydrateResponse"
       },
+      "IbanRequest": {
+        "properties": {
+          "iban": {
+            "type": "string",
+            "title": "Iban",
+            "default": "GB82 WEST 1234 5698 7654 32"
+          }
+        },
+        "type": "object",
+        "title": "IbanRequest"
+      },
+      "IbanResponse": {
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "title": "Is Valid"
+          },
+          "country_code": {
+            "type": "string",
+            "title": "Country Code"
+          },
+          "cleaned_iban": {
+            "type": "string",
+            "title": "Cleaned Iban"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid",
+          "country_code",
+          "cleaned_iban"
+        ],
+        "title": "IbanResponse"
+      },
       "InjectionScanRequest": {
         "properties": {
           "user_prompt": {
@@ -1554,6 +5719,247 @@
           "detected_threats"
         ],
         "title": "InjectionScanResponse"
+      },
+      "IpRequest": {
+        "properties": {
+          "ip_or_cidr": {
+            "type": "string",
+            "title": "Ip Or Cidr",
+            "default": "192.168.1.100"
+          }
+        },
+        "type": "object",
+        "title": "IpRequest"
+      },
+      "IpResponse": {
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "title": "Is Valid"
+          },
+          "ip_version": {
+            "title": "Ip Version",
+            "type": "integer",
+            "nullable": true
+          },
+          "is_private": {
+            "title": "Is Private",
+            "type": "boolean",
+            "nullable": true
+          },
+          "is_loopback": {
+            "title": "Is Loopback",
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid",
+          "ip_version",
+          "is_private",
+          "is_loopback"
+        ],
+        "title": "IpResponse"
+      },
+      "IsbnRequest": {
+        "properties": {
+          "isbn": {
+            "type": "string",
+            "title": "Isbn",
+            "default": "978-3-16-148410-0"
+          }
+        },
+        "type": "object",
+        "title": "IsbnRequest"
+      },
+      "IsbnResponse": {
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "title": "Is Valid"
+          },
+          "isbn_version": {
+            "type": "string",
+            "title": "Isbn Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid",
+          "isbn_version"
+        ],
+        "title": "IsbnResponse"
+      },
+      "IsoDateRequest": {
+        "properties": {
+          "timestamp_str": {
+            "type": "string",
+            "title": "Timestamp Str",
+            "default": "2026-11-07T00:41:33Z"
+          }
+        },
+        "type": "object",
+        "title": "IsoDateRequest"
+      },
+      "IsoDateResponse": {
+        "properties": {
+          "is_valid_iso": {
+            "type": "boolean",
+            "title": "Is Valid Iso"
+          },
+          "unix_epoch": {
+            "title": "Unix Epoch",
+            "type": "integer",
+            "nullable": true
+          },
+          "utc_iso": {
+            "title": "Utc Iso",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid_iso",
+          "unix_epoch",
+          "utc_iso"
+        ],
+        "title": "IsoDateResponse"
+      },
+      "JsonCsvRequest": {
+        "properties": {
+          "json_array": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Json Array",
+            "default": [
+              {
+                "name": "Alice",
+                "role": "Engineer",
+                "level": 3
+              },
+              {
+                "name": "Bob",
+                "role": "Designer",
+                "level": 2
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "JsonCsvRequest"
+      },
+      "JsonCsvResponse": {
+        "properties": {
+          "csv_string": {
+            "type": "string",
+            "title": "Csv String"
+          },
+          "rows_converted": {
+            "type": "integer",
+            "title": "Rows Converted"
+          }
+        },
+        "type": "object",
+        "required": [
+          "csv_string",
+          "rows_converted"
+        ],
+        "title": "JsonCsvResponse"
+      },
+      "JsonFlattenRequest": {
+        "properties": {
+          "nested_json": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Nested Json",
+            "default": {
+              "app": {
+                "server": {
+                  "debug": true,
+                  "port": 8000
+                }
+              },
+              "name": "suite"
+            }
+          }
+        },
+        "type": "object",
+        "title": "JsonFlattenRequest"
+      },
+      "JsonFlattenResponse": {
+        "properties": {
+          "flattened_json": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Flattened Json"
+          }
+        },
+        "type": "object",
+        "required": [
+          "flattened_json"
+        ],
+        "title": "JsonFlattenResponse"
+      },
+      "JsonFormatRequest": {
+        "properties": {
+          "json_string": {
+            "type": "string",
+            "title": "Json String",
+            "default": "{\n  \"title\": \"API\",\n  \"count\": 100\n}"
+          },
+          "indent": {
+            "type": "integer",
+            "maximum": 8.0,
+            "minimum": 0.0,
+            "title": "Indent",
+            "default": 2
+          }
+        },
+        "type": "object",
+        "title": "JsonFormatRequest"
+      },
+      "JsonFormatResponse": {
+        "properties": {
+          "formatted_json": {
+            "type": "string",
+            "title": "Formatted Json"
+          },
+          "minified_json": {
+            "type": "string",
+            "title": "Minified Json"
+          },
+          "byte_savings": {
+            "type": "integer",
+            "title": "Byte Savings"
+          }
+        },
+        "type": "object",
+        "required": [
+          "formatted_json",
+          "minified_json",
+          "byte_savings"
+        ],
+        "title": "JsonFormatResponse"
       },
       "JsonRepairRequest": {
         "properties": {
@@ -1619,6 +6025,102 @@
           "repairs_applied"
         ],
         "title": "JsonRepairResponse"
+      },
+      "JsonValidRequest": {
+        "properties": {
+          "raw_json_string": {
+            "type": "string",
+            "title": "Raw Json String",
+            "default": "{\"status\": \"ok\", \"code\": 200}"
+          }
+        },
+        "type": "object",
+        "title": "JsonValidRequest"
+      },
+      "JsonValidResponse": {
+        "properties": {
+          "is_valid_json": {
+            "type": "boolean",
+            "title": "Is Valid Json"
+          },
+          "object_type": {
+            "type": "string",
+            "title": "Object Type"
+          },
+          "error_message": {
+            "title": "Error Message",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid_json",
+          "object_type",
+          "error_message"
+        ],
+        "title": "JsonValidResponse"
+      },
+      "JsonYamlRequest": {
+        "properties": {
+          "json_string": {
+            "type": "string",
+            "title": "Json String",
+            "default": "{\"server\": {\"port\": 8080, \"host\": \"0.0.0.0\"}, \"features\": [\"auth\", \"rate_limit\"]}"
+          }
+        },
+        "type": "object",
+        "title": "JsonYamlRequest"
+      },
+      "JsonYamlResponse": {
+        "properties": {
+          "yaml_string": {
+            "type": "string",
+            "title": "Yaml String"
+          }
+        },
+        "type": "object",
+        "required": [
+          "yaml_string"
+        ],
+        "title": "JsonYamlResponse"
+      },
+      "JwtRequest": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "Token",
+            "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+          }
+        },
+        "type": "object",
+        "title": "JwtRequest"
+      },
+      "JwtResponse": {
+        "properties": {
+          "header": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Header"
+          },
+          "payload": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Payload"
+          },
+          "is_expired_claim": {
+            "title": "Is Expired Claim",
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "header",
+          "payload",
+          "is_expired_claim"
+        ],
+        "title": "JwtResponse"
       },
       "LeadExtractRequest": {
         "properties": {
@@ -1703,6 +6205,325 @@
         ],
         "title": "LeadExtractResponse"
       },
+      "LinkStatus": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "status_code": {
+            "type": "integer",
+            "title": "Status Code"
+          },
+          "is_broken": {
+            "type": "boolean",
+            "title": "Is Broken"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "status_code",
+          "is_broken"
+        ],
+        "title": "LinkStatus"
+      },
+      "LoanRequest": {
+        "properties": {
+          "loan_amount": {
+            "type": "number",
+            "title": "Loan Amount",
+            "default": 250000.0
+          },
+          "annual_interest_percent": {
+            "type": "number",
+            "title": "Annual Interest Percent",
+            "default": 6.5
+          },
+          "term_years": {
+            "type": "integer",
+            "title": "Term Years",
+            "default": 30
+          }
+        },
+        "type": "object",
+        "title": "LoanRequest"
+      },
+      "LoanResponse": {
+        "properties": {
+          "monthly_payment": {
+            "type": "number",
+            "title": "Monthly Payment"
+          },
+          "total_payment": {
+            "type": "number",
+            "title": "Total Payment"
+          },
+          "total_interest": {
+            "type": "number",
+            "title": "Total Interest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "monthly_payment",
+          "total_payment",
+          "total_interest"
+        ],
+        "title": "LoanResponse"
+      },
+      "LoremRequest": {
+        "properties": {
+          "paragraphs_count": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Paragraphs Count",
+            "default": 2
+          }
+        },
+        "type": "object",
+        "title": "LoremRequest"
+      },
+      "LoremResponse": {
+        "properties": {
+          "paragraphs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Paragraphs"
+          },
+          "total_words": {
+            "type": "integer",
+            "title": "Total Words"
+          }
+        },
+        "type": "object",
+        "required": [
+          "paragraphs",
+          "total_words"
+        ],
+        "title": "LoremResponse"
+      },
+      "MacRequest": {
+        "properties": {
+          "mac_address": {
+            "type": "string",
+            "title": "Mac Address",
+            "default": "001A2B3C4D5E"
+          }
+        },
+        "type": "object",
+        "title": "MacRequest"
+      },
+      "MacResponse": {
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "title": "Is Valid"
+          },
+          "colon_format": {
+            "title": "Colon Format",
+            "type": "string",
+            "nullable": true
+          },
+          "dash_format": {
+            "title": "Dash Format",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid",
+          "colon_format",
+          "dash_format"
+        ],
+        "title": "MacResponse"
+      },
+      "MathEvalRequest": {
+        "properties": {
+          "expression": {
+            "type": "string",
+            "title": "Expression",
+            "default": "(15 * 4) + (250 / 5) - 10"
+          }
+        },
+        "type": "object",
+        "title": "MathEvalRequest"
+      },
+      "MathEvalResponse": {
+        "properties": {
+          "expression": {
+            "type": "string",
+            "title": "Expression"
+          },
+          "result": {
+            "type": "number",
+            "title": "Result"
+          }
+        },
+        "type": "object",
+        "required": [
+          "expression",
+          "result"
+        ],
+        "title": "MathEvalResponse"
+      },
+      "MdHtmlRequest": {
+        "properties": {
+          "markdown": {
+            "type": "string",
+            "title": "Markdown",
+            "default": "# Title\n\n- Bullet **one**\n- Bullet two\n\nVisit [Link](https://example.com)"
+          }
+        },
+        "type": "object",
+        "title": "MdHtmlRequest"
+      },
+      "MdHtmlResponse": {
+        "properties": {
+          "html": {
+            "type": "string",
+            "title": "Html"
+          }
+        },
+        "type": "object",
+        "required": [
+          "html"
+        ],
+        "title": "MdHtmlResponse"
+      },
+      "MdTableRequest": {
+        "properties": {
+          "headers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Headers",
+            "default": [
+              "Name",
+              "Tier",
+              "Price"
+            ]
+          },
+          "rows": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Rows",
+            "default": [
+              [
+                "Basic",
+                "Free",
+                "$0"
+              ],
+              [
+                "Pro",
+                "Paid",
+                "$9.99"
+              ],
+              [
+                "Ultra",
+                "Scale",
+                "$29.99"
+              ]
+            ]
+          }
+        },
+        "type": "object",
+        "title": "MdTableRequest"
+      },
+      "MdTableResponse": {
+        "properties": {
+          "markdown_table": {
+            "type": "string",
+            "title": "Markdown Table"
+          }
+        },
+        "type": "object",
+        "required": [
+          "markdown_table"
+        ],
+        "title": "MdTableResponse"
+      },
+      "MimeRequest": {
+        "properties": {
+          "file_extension_or_name": {
+            "type": "string",
+            "title": "File Extension Or Name",
+            "default": "report.pdf"
+          }
+        },
+        "type": "object",
+        "title": "MimeRequest"
+      },
+      "MimeResponse": {
+        "properties": {
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "mime_type": {
+            "type": "string",
+            "title": "Mime Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "filename",
+          "mime_type"
+        ],
+        "title": "MimeResponse"
+      },
+      "MxRiskRequest": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "default": "gmail.com"
+          }
+        },
+        "type": "object",
+        "title": "MxRiskRequest"
+      },
+      "MxRiskResponse": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "has_mx": {
+            "type": "boolean",
+            "title": "Has Mx"
+          },
+          "mx_records": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mx Records"
+          },
+          "risk_level": {
+            "type": "string",
+            "title": "Risk Level"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "has_mx",
+          "mx_records",
+          "risk_level"
+        ],
+        "title": "MxRiskResponse"
+      },
       "NormalizeRequest": {
         "properties": {
           "vector": {
@@ -1742,6 +6563,220 @@
           "normalized_vector"
         ],
         "title": "NormalizeResponse"
+      },
+      "OgRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://github.com"
+          }
+        },
+        "type": "object",
+        "title": "OgRequest"
+      },
+      "OgResponse": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "nullable": true
+          },
+          "site_name": {
+            "title": "Site Name",
+            "type": "string",
+            "nullable": true
+          },
+          "card_type": {
+            "title": "Card Type",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "title",
+          "description",
+          "image",
+          "site_name",
+          "card_type"
+        ],
+        "title": "OgResponse"
+      },
+      "PaletteRequest": {
+        "properties": {
+          "base_hex": {
+            "type": "string",
+            "title": "Base Hex",
+            "default": "#3B82F6"
+          }
+        },
+        "type": "object",
+        "title": "PaletteRequest"
+      },
+      "PaletteResponse": {
+        "properties": {
+          "base_color": {
+            "type": "string",
+            "title": "Base Color"
+          },
+          "complementary": {
+            "type": "string",
+            "title": "Complementary"
+          },
+          "palette_hex_codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Palette Hex Codes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "base_color",
+          "complementary",
+          "palette_hex_codes"
+        ],
+        "title": "PaletteResponse"
+      },
+      "PassphraseRequest": {
+        "properties": {
+          "word_count": {
+            "type": "integer",
+            "maximum": 8.0,
+            "minimum": 3.0,
+            "title": "Word Count",
+            "default": 4
+          },
+          "separator": {
+            "type": "string",
+            "title": "Separator",
+            "default": "-"
+          }
+        },
+        "type": "object",
+        "title": "PassphraseRequest"
+      },
+      "PassphraseResponse": {
+        "properties": {
+          "passphrase": {
+            "type": "string",
+            "title": "Passphrase"
+          }
+        },
+        "type": "object",
+        "required": [
+          "passphrase"
+        ],
+        "title": "PassphraseResponse"
+      },
+      "PercentRequest": {
+        "properties": {
+          "original_price": {
+            "type": "number",
+            "title": "Original Price",
+            "default": 99.0
+          },
+          "discount_percent": {
+            "type": "number",
+            "title": "Discount Percent",
+            "default": 25.0
+          }
+        },
+        "type": "object",
+        "title": "PercentRequest"
+      },
+      "PercentResponse": {
+        "properties": {
+          "discount_amount": {
+            "type": "number",
+            "title": "Discount Amount"
+          },
+          "final_price": {
+            "type": "number",
+            "title": "Final Price"
+          },
+          "savings_ratio": {
+            "type": "number",
+            "title": "Savings Ratio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "discount_amount",
+          "final_price",
+          "savings_ratio"
+        ],
+        "title": "PercentResponse"
+      },
+      "PhoneRequest": {
+        "properties": {
+          "phone_number": {
+            "type": "string",
+            "title": "Phone Number",
+            "default": "+1 415 555 2671"
+          },
+          "default_region": {
+            "type": "string",
+            "title": "Default Region",
+            "default": "US"
+          }
+        },
+        "type": "object",
+        "title": "PhoneRequest"
+      },
+      "PhoneResponse": {
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "title": "Is Valid"
+          },
+          "e164_format": {
+            "title": "E164 Format",
+            "type": "string",
+            "nullable": true
+          },
+          "international_format": {
+            "title": "International Format",
+            "type": "string",
+            "nullable": true
+          },
+          "country_code": {
+            "title": "Country Code",
+            "type": "integer",
+            "nullable": true
+          },
+          "region_code": {
+            "title": "Region Code",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid",
+          "e164_format",
+          "international_format",
+          "country_code",
+          "region_code"
+        ],
+        "title": "PhoneResponse"
       },
       "PiiRedactRequest": {
         "properties": {
@@ -1799,6 +6834,252 @@
           "safe_for_llm"
         ],
         "title": "PiiRedactResponse"
+      },
+      "PlatformStatus": {
+        "properties": {
+          "max_allowed": {
+            "type": "integer",
+            "title": "Max Allowed"
+          },
+          "characters_used": {
+            "type": "integer",
+            "title": "Characters Used"
+          },
+          "is_within_limit": {
+            "type": "boolean",
+            "title": "Is Within Limit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "max_allowed",
+          "characters_used",
+          "is_within_limit"
+        ],
+        "title": "PlatformStatus"
+      },
+      "PostalRequest": {
+        "properties": {
+          "postal_code": {
+            "type": "string",
+            "title": "Postal Code",
+            "default": "90210"
+          },
+          "country_code": {
+            "type": "string",
+            "title": "Country Code",
+            "default": "US"
+          }
+        },
+        "type": "object",
+        "title": "PostalRequest"
+      },
+      "PostalResponse": {
+        "properties": {
+          "is_valid_format": {
+            "type": "boolean",
+            "title": "Is Valid Format"
+          },
+          "country_code": {
+            "type": "string",
+            "title": "Country Code"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid_format",
+          "country_code"
+        ],
+        "title": "PostalResponse"
+      },
+      "ProfanityRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "This is a damn good API service with hell of a performance."
+          },
+          "replacement_char": {
+            "type": "string",
+            "title": "Replacement Char",
+            "default": "*"
+          }
+        },
+        "type": "object",
+        "title": "ProfanityRequest"
+      },
+      "ProfanityResponse": {
+        "properties": {
+          "clean_text": {
+            "type": "string",
+            "title": "Clean Text"
+          },
+          "profanities_found_count": {
+            "type": "integer",
+            "title": "Profanities Found Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "clean_text",
+          "profanities_found_count"
+        ],
+        "title": "ProfanityResponse"
+      },
+      "PwdGenRequest": {
+        "properties": {
+          "length": {
+            "type": "integer",
+            "maximum": 64.0,
+            "minimum": 8.0,
+            "title": "Length",
+            "default": 16
+          },
+          "include_symbols": {
+            "type": "boolean",
+            "title": "Include Symbols",
+            "default": true
+          },
+          "include_numbers": {
+            "type": "boolean",
+            "title": "Include Numbers",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "PwdGenRequest"
+      },
+      "PwdGenResponse": {
+        "properties": {
+          "password": {
+            "type": "string",
+            "title": "Password"
+          },
+          "length": {
+            "type": "integer",
+            "title": "Length"
+          }
+        },
+        "type": "object",
+        "required": [
+          "password",
+          "length"
+        ],
+        "title": "PwdGenResponse"
+      },
+      "QrRequest": {
+        "properties": {
+          "data_to_encode": {
+            "type": "string",
+            "title": "Data To Encode",
+            "default": "https://rapidapi.com"
+          },
+          "box_size": {
+            "type": "integer",
+            "maximum": 20.0,
+            "minimum": 2.0,
+            "title": "Box Size",
+            "default": 8
+          }
+        },
+        "type": "object",
+        "title": "QrRequest"
+      },
+      "QrResponse": {
+        "properties": {
+          "base64_png": {
+            "type": "string",
+            "title": "Base64 Png"
+          },
+          "data_encoded": {
+            "type": "string",
+            "title": "Data Encoded"
+          }
+        },
+        "type": "object",
+        "required": [
+          "base64_png",
+          "data_encoded"
+        ],
+        "title": "QrResponse"
+      },
+      "QuoteResponse": {
+        "properties": {
+          "quote": {
+            "type": "string",
+            "title": "Quote"
+          },
+          "author": {
+            "type": "string",
+            "title": "Author"
+          }
+        },
+        "type": "object",
+        "required": [
+          "quote",
+          "author"
+        ],
+        "title": "QuoteResponse"
+      },
+      "RedirectHop": {
+        "properties": {
+          "status_code": {
+            "type": "integer",
+            "title": "Status Code"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status_code",
+          "url"
+        ],
+        "title": "RedirectHop"
+      },
+      "RedirectRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://bit.ly/3gXYZ"
+          }
+        },
+        "type": "object",
+        "title": "RedirectRequest"
+      },
+      "RedirectResponse": {
+        "properties": {
+          "initial_url": {
+            "type": "string",
+            "title": "Initial Url"
+          },
+          "final_url": {
+            "type": "string",
+            "title": "Final Url"
+          },
+          "total_redirects": {
+            "type": "integer",
+            "title": "Total Redirects"
+          },
+          "chain": {
+            "items": {
+              "$ref": "#/components/schemas/RedirectHop"
+            },
+            "type": "array",
+            "title": "Chain"
+          }
+        },
+        "type": "object",
+        "required": [
+          "initial_url",
+          "final_url",
+          "total_redirects",
+          "chain"
+        ],
+        "title": "RedirectResponse"
       },
       "RegexMatchItem": {
         "properties": {
@@ -1889,6 +7170,231 @@
         ],
         "title": "RegexTestResponse"
       },
+      "RelativeTimeRequest": {
+        "properties": {
+          "timestamp_epoch": {
+            "type": "integer",
+            "title": "Timestamp Epoch",
+            "default": 1762497600
+          }
+        },
+        "type": "object",
+        "title": "RelativeTimeRequest"
+      },
+      "RelativeTimeResponse": {
+        "properties": {
+          "relative_time": {
+            "type": "string",
+            "title": "Relative Time"
+          },
+          "seconds_delta": {
+            "type": "integer",
+            "title": "Seconds Delta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "relative_time",
+          "seconds_delta"
+        ],
+        "title": "RelativeTimeResponse"
+      },
+      "RobotsRequest": {
+        "properties": {
+          "domain_or_url": {
+            "type": "string",
+            "title": "Domain Or Url",
+            "default": "https://example.com"
+          }
+        },
+        "type": "object",
+        "title": "RobotsRequest"
+      },
+      "RobotsResponse": {
+        "properties": {
+          "robots_url": {
+            "type": "string",
+            "title": "Robots Url"
+          },
+          "sitemaps_found": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Sitemaps Found"
+          },
+          "disallowed_paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Disallowed Paths"
+          },
+          "crawl_delay": {
+            "title": "Crawl Delay",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "robots_url",
+          "sitemaps_found",
+          "disallowed_paths",
+          "crawl_delay"
+        ],
+        "title": "RobotsResponse"
+      },
+      "Rot13Request": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "Uryyb Jbeyq!"
+          }
+        },
+        "type": "object",
+        "title": "Rot13Request"
+      },
+      "Rot13Response": {
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "Result"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "title": "Rot13Response"
+      },
+      "RssRequest": {
+        "properties": {
+          "feed_url": {
+            "type": "string",
+            "title": "Feed Url",
+            "default": "https://news.ycombinator.com/rss"
+          }
+        },
+        "type": "object",
+        "title": "RssRequest"
+      },
+      "RssResponse": {
+        "properties": {
+          "feed_url": {
+            "type": "string",
+            "title": "Feed Url"
+          },
+          "total_items": {
+            "type": "integer",
+            "title": "Total Items"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/FeedItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "feed_url",
+          "total_items",
+          "items"
+        ],
+        "title": "RssResponse"
+      },
+      "SchemaGenRequest": {
+        "properties": {
+          "page_title": {
+            "type": "string",
+            "title": "Page Title",
+            "default": "Best Developer Tools 2026"
+          },
+          "page_description": {
+            "type": "string",
+            "title": "Page Description",
+            "default": "Complete catalog of modern AI developer APIs."
+          },
+          "canonical_url": {
+            "type": "string",
+            "title": "Canonical Url",
+            "default": "https://example.com/tools"
+          }
+        },
+        "type": "object",
+        "title": "SchemaGenRequest"
+      },
+      "SchemaGenResponse": {
+        "properties": {
+          "json_ld_schema": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Json Ld Schema"
+          },
+          "html_meta_tags": {
+            "type": "string",
+            "title": "Html Meta Tags"
+          }
+        },
+        "type": "object",
+        "required": [
+          "json_ld_schema",
+          "html_meta_tags"
+        ],
+        "title": "SchemaGenResponse"
+      },
+      "SecHeaderRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://github.com"
+          }
+        },
+        "type": "object",
+        "title": "SecHeaderRequest"
+      },
+      "SecHeaderResponse": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "grade": {
+            "type": "string",
+            "title": "Grade"
+          },
+          "csp": {
+            "type": "boolean",
+            "title": "Csp"
+          },
+          "hsts": {
+            "type": "boolean",
+            "title": "Hsts"
+          },
+          "x_frame_options": {
+            "type": "boolean",
+            "title": "X Frame Options"
+          },
+          "x_content_type_options": {
+            "type": "boolean",
+            "title": "X Content Type Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "grade",
+          "csp",
+          "hsts",
+          "x_frame_options",
+          "x_content_type_options"
+        ],
+        "title": "SecHeaderResponse"
+      },
       "SecurityAuditRequest": {
         "properties": {
           "password_or_secret": {
@@ -1959,6 +7465,45 @@
           "leaked_secrets_detected"
         ],
         "title": "SecurityAuditResponse"
+      },
+      "SemVerRequest": {
+        "properties": {
+          "version_a": {
+            "type": "string",
+            "title": "Version A",
+            "default": "1.10.4"
+          },
+          "version_b": {
+            "type": "string",
+            "title": "Version B",
+            "default": "2.0.0-beta"
+          }
+        },
+        "type": "object",
+        "title": "SemVerRequest"
+      },
+      "SemVerResponse": {
+        "properties": {
+          "version_a_valid": {
+            "type": "boolean",
+            "title": "Version A Valid"
+          },
+          "version_b_valid": {
+            "type": "boolean",
+            "title": "Version B Valid"
+          },
+          "comparison": {
+            "type": "string",
+            "title": "Comparison"
+          }
+        },
+        "type": "object",
+        "required": [
+          "version_a_valid",
+          "version_b_valid",
+          "comparison"
+        ],
+        "title": "SemVerResponse"
       },
       "SeoAuditRequest": {
         "properties": {
@@ -2069,6 +7614,285 @@
         ],
         "title": "SeoAuditResponse"
       },
+      "SlugifyRequest": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "default": "The 100 Best Developer Tools of 2026!"
+          }
+        },
+        "type": "object",
+        "title": "SlugifyRequest"
+      },
+      "SlugifyResponse": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug"
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug"
+        ],
+        "title": "SlugifyResponse"
+      },
+      "SocialLimitRequest": {
+        "properties": {
+          "post_text": {
+            "type": "string",
+            "title": "Post Text",
+            "default": "Launching our 100-in-1 developer API suite today! Build faster with Antigravity. #developer #api"
+          }
+        },
+        "type": "object",
+        "title": "SocialLimitRequest"
+      },
+      "SocialLimitResponse": {
+        "properties": {
+          "twitter_x": {
+            "$ref": "#/components/schemas/PlatformStatus"
+          },
+          "linkedin": {
+            "$ref": "#/components/schemas/PlatformStatus"
+          },
+          "instagram_caption": {
+            "$ref": "#/components/schemas/PlatformStatus"
+          }
+        },
+        "type": "object",
+        "required": [
+          "twitter_x",
+          "linkedin",
+          "instagram_caption"
+        ],
+        "title": "SocialLimitResponse"
+      },
+      "SqlFormatRequest": {
+        "properties": {
+          "sql_query": {
+            "type": "string",
+            "title": "Sql Query",
+            "default": "select id,name,email from users where active=1 and role='admin' order by id desc;"
+          }
+        },
+        "type": "object",
+        "title": "SqlFormatRequest"
+      },
+      "SqlFormatResponse": {
+        "properties": {
+          "formatted_sql": {
+            "type": "string",
+            "title": "Formatted Sql"
+          }
+        },
+        "type": "object",
+        "required": [
+          "formatted_sql"
+        ],
+        "title": "SqlFormatResponse"
+      },
+      "SqliRequest": {
+        "properties": {
+          "query_string": {
+            "type": "string",
+            "title": "Query String",
+            "default": "SELECT * FROM users WHERE id = 1 OR '1'='1' --"
+          }
+        },
+        "type": "object",
+        "title": "SqliRequest"
+      },
+      "SqliResponse": {
+        "properties": {
+          "is_suspicious": {
+            "type": "boolean",
+            "title": "Is Suspicious"
+          },
+          "risk_level": {
+            "type": "string",
+            "title": "Risk Level"
+          },
+          "patterns_detected": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Patterns Detected"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_suspicious",
+          "risk_level",
+          "patterns_detected"
+        ],
+        "title": "SqliResponse"
+      },
+      "SslRequest": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "default": "github.com"
+          }
+        },
+        "type": "object",
+        "title": "SslRequest"
+      },
+      "SslResponse": {
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "is_https_supported": {
+            "type": "boolean",
+            "title": "Is Https Supported"
+          },
+          "status_code": {
+            "title": "Status Code",
+            "type": "integer",
+            "nullable": true
+          },
+          "hsts_enabled": {
+            "type": "boolean",
+            "title": "Hsts Enabled"
+          }
+        },
+        "type": "object",
+        "required": [
+          "domain",
+          "is_https_supported",
+          "status_code",
+          "hsts_enabled"
+        ],
+        "title": "SslResponse"
+      },
+      "StatsRequest": {
+        "properties": {
+          "numbers": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Numbers",
+            "default": [
+              12.5,
+              45.0,
+              67.2,
+              12.5,
+              89.0,
+              34.1
+            ]
+          }
+        },
+        "type": "object",
+        "title": "StatsRequest"
+      },
+      "StatsResponse": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "mean": {
+            "type": "number",
+            "title": "Mean"
+          },
+          "median": {
+            "type": "number",
+            "title": "Median"
+          },
+          "std_dev": {
+            "type": "number",
+            "title": "Std Dev"
+          },
+          "min_value": {
+            "type": "number",
+            "title": "Min Value"
+          },
+          "max_value": {
+            "type": "number",
+            "title": "Max Value"
+          }
+        },
+        "type": "object",
+        "required": [
+          "count",
+          "mean",
+          "median",
+          "std_dev",
+          "min_value",
+          "max_value"
+        ],
+        "title": "StatsResponse"
+      },
+      "SuiteStatusResponse": {
+        "properties": {
+          "total_endpoints": {
+            "type": "integer",
+            "title": "Total Endpoints"
+          },
+          "suite_version": {
+            "type": "string",
+            "title": "Suite Version"
+          },
+          "categories_included": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Categories Included"
+          },
+          "deployment_host": {
+            "type": "string",
+            "title": "Deployment Host"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_endpoints",
+          "suite_version",
+          "categories_included",
+          "deployment_host"
+        ],
+        "title": "SuiteStatusResponse"
+      },
+      "TechDetectRequest": {
+        "properties": {
+          "headers_json": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Headers Json",
+            "default": {
+              "server": "cloudflare",
+              "x-powered-by": "Express"
+            }
+          }
+        },
+        "type": "object",
+        "title": "TechDetectRequest"
+      },
+      "TechDetectResponse": {
+        "properties": {
+          "detected_technologies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Detected Technologies"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detected_technologies"
+        ],
+        "title": "TechDetectResponse"
+      },
       "TextAnalyticsRequest": {
         "properties": {
           "text": {
@@ -2160,6 +7984,77 @@
         ],
         "title": "TextAnalyticsResponse"
       },
+      "TextNormRequest": {
+        "properties": {
+          "raw_text": {
+            "type": "string",
+            "title": "Raw Text",
+            "default": "  Multiple   spaces\r\n\r\nand   tabs\t\there.  "
+          }
+        },
+        "type": "object",
+        "title": "TextNormRequest"
+      },
+      "TextNormResponse": {
+        "properties": {
+          "normalized_text": {
+            "type": "string",
+            "title": "Normalized Text"
+          },
+          "char_count": {
+            "type": "integer",
+            "title": "Char Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "normalized_text",
+          "char_count"
+        ],
+        "title": "TextNormResponse"
+      },
+      "TldParseRequest": {
+        "properties": {
+          "hostname": {
+            "type": "string",
+            "title": "Hostname",
+            "default": "sub.api.products.example.co.uk"
+          }
+        },
+        "type": "object",
+        "title": "TldParseRequest"
+      },
+      "TldParseResponse": {
+        "properties": {
+          "raw_hostname": {
+            "type": "string",
+            "title": "Raw Hostname"
+          },
+          "root_domain": {
+            "type": "string",
+            "title": "Root Domain"
+          },
+          "tld": {
+            "type": "string",
+            "title": "Tld"
+          },
+          "subdomains": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Subdomains"
+          }
+        },
+        "type": "object",
+        "required": [
+          "raw_hostname",
+          "root_domain",
+          "tld",
+          "subdomains"
+        ],
+        "title": "TldParseResponse"
+      },
       "TokenEstimateRequest": {
         "properties": {
           "text": {
@@ -2212,6 +8107,322 @@
           "pricing_comparison"
         ],
         "title": "TokenEstimateResponse"
+      },
+      "TokenGenRequest": {
+        "properties": {
+          "length_bytes": {
+            "type": "integer",
+            "maximum": 128.0,
+            "minimum": 16.0,
+            "title": "Length Bytes",
+            "default": 32
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Prefix",
+            "default": "sk_live_"
+          }
+        },
+        "type": "object",
+        "title": "TokenGenRequest"
+      },
+      "TokenGenResponse": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "Token"
+          },
+          "entropy_bits": {
+            "type": "integer",
+            "title": "Entropy Bits"
+          }
+        },
+        "type": "object",
+        "required": [
+          "token",
+          "entropy_bits"
+        ],
+        "title": "TokenGenResponse"
+      },
+      "TzConvertRequest": {
+        "properties": {
+          "timestamp_iso": {
+            "type": "string",
+            "title": "Timestamp Iso",
+            "default": "2026-11-07T00:41:33Z"
+          },
+          "target_timezone": {
+            "type": "string",
+            "title": "Target Timezone",
+            "default": "Asia/Kolkata"
+          }
+        },
+        "type": "object",
+        "title": "TzConvertRequest"
+      },
+      "TzConvertResponse": {
+        "properties": {
+          "original_iso": {
+            "type": "string",
+            "title": "Original Iso"
+          },
+          "target_timezone": {
+            "type": "string",
+            "title": "Target Timezone"
+          },
+          "converted_iso": {
+            "type": "string",
+            "title": "Converted Iso"
+          },
+          "is_dst": {
+            "type": "boolean",
+            "title": "Is Dst"
+          }
+        },
+        "type": "object",
+        "required": [
+          "original_iso",
+          "target_timezone",
+          "converted_iso",
+          "is_dst"
+        ],
+        "title": "TzConvertResponse"
+      },
+      "UaRequest": {
+        "properties": {
+          "user_agent": {
+            "type": "string",
+            "title": "User Agent",
+            "default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+          }
+        },
+        "type": "object",
+        "title": "UaRequest"
+      },
+      "UaResponse": {
+        "properties": {
+          "browser_family": {
+            "type": "string",
+            "title": "Browser Family"
+          },
+          "browser_version": {
+            "type": "string",
+            "title": "Browser Version"
+          },
+          "os_family": {
+            "type": "string",
+            "title": "Os Family"
+          },
+          "os_version": {
+            "type": "string",
+            "title": "Os Version"
+          },
+          "device_family": {
+            "type": "string",
+            "title": "Device Family"
+          },
+          "is_bot": {
+            "type": "boolean",
+            "title": "Is Bot"
+          }
+        },
+        "type": "object",
+        "required": [
+          "browser_family",
+          "browser_version",
+          "os_family",
+          "os_version",
+          "device_family",
+          "is_bot"
+        ],
+        "title": "UaResponse"
+      },
+      "UnitRequest": {
+        "properties": {
+          "value": {
+            "type": "number",
+            "title": "Value",
+            "default": 100.0
+          },
+          "from_unit": {
+            "type": "string",
+            "title": "From Unit",
+            "description": "km, miles, kg, lbs, celsius, fahrenheit, mb, gb",
+            "default": "km"
+          },
+          "to_unit": {
+            "type": "string",
+            "title": "To Unit",
+            "default": "miles"
+          }
+        },
+        "type": "object",
+        "title": "UnitRequest"
+      },
+      "UnitResponse": {
+        "properties": {
+          "input_value": {
+            "type": "number",
+            "title": "Input Value"
+          },
+          "converted_value": {
+            "type": "number",
+            "title": "Converted Value"
+          },
+          "conversion_formula": {
+            "type": "string",
+            "title": "Conversion Formula"
+          }
+        },
+        "type": "object",
+        "required": [
+          "input_value",
+          "converted_value",
+          "conversion_formula"
+        ],
+        "title": "UnitResponse"
+      },
+      "UrlCodecRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "hello world & special/chars?q=1"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode",
+            "description": "'encode' or 'decode'",
+            "default": "encode"
+          }
+        },
+        "type": "object",
+        "title": "UrlCodecRequest"
+      },
+      "UrlCodecResponse": {
+        "properties": {
+          "result": {
+            "type": "string",
+            "title": "Result"
+          }
+        },
+        "type": "object",
+        "required": [
+          "result"
+        ],
+        "title": "UrlCodecResponse"
+      },
+      "UrlParseRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": "https://example.com/search?q=fastapi&sort=desc&limit=50#page2"
+          }
+        },
+        "type": "object",
+        "title": "UrlParseRequest"
+      },
+      "UrlParseResponse": {
+        "properties": {
+          "scheme": {
+            "type": "string",
+            "title": "Scheme"
+          },
+          "domain": {
+            "type": "string",
+            "title": "Domain"
+          },
+          "path": {
+            "type": "string",
+            "title": "Path"
+          },
+          "query_params": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Query Params"
+          },
+          "fragment": {
+            "type": "string",
+            "title": "Fragment"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scheme",
+          "domain",
+          "path",
+          "query_params",
+          "fragment"
+        ],
+        "title": "UrlParseResponse"
+      },
+      "UuidCheckRequest": {
+        "properties": {
+          "uuid_str": {
+            "type": "string",
+            "title": "Uuid Str",
+            "default": "550e8400-e29b-41d4-a716-446655440000"
+          }
+        },
+        "type": "object",
+        "title": "UuidCheckRequest"
+      },
+      "UuidCheckResponse": {
+        "properties": {
+          "is_valid": {
+            "type": "boolean",
+            "title": "Is Valid"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer",
+            "nullable": true
+          },
+          "variant": {
+            "title": "Variant",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid",
+          "version",
+          "variant"
+        ],
+        "title": "UuidCheckResponse"
+      },
+      "UuidGenRequest": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Count",
+            "default": 5
+          }
+        },
+        "type": "object",
+        "title": "UuidGenRequest"
+      },
+      "UuidGenResponse": {
+        "properties": {
+          "uuids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Uuids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "uuids"
+        ],
+        "title": "UuidGenResponse"
       },
       "ValidationError": {
         "properties": {
@@ -2330,6 +8541,150 @@
           "links_extracted"
         ],
         "title": "WebToMarkdownResponse"
+      },
+      "WordFreqItem": {
+        "properties": {
+          "word": {
+            "type": "string",
+            "title": "Word"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "word",
+          "count"
+        ],
+        "title": "WordFreqItem"
+      },
+      "WordFreqRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": "RapidAPI suite allows building APIs fast. Building APIs with Antigravity is faster."
+          },
+          "top_n": {
+            "type": "integer",
+            "maximum": 25.0,
+            "minimum": 1.0,
+            "title": "Top N",
+            "default": 5
+          }
+        },
+        "type": "object",
+        "title": "WordFreqRequest"
+      },
+      "WordFreqResponse": {
+        "properties": {
+          "total_words": {
+            "type": "integer",
+            "title": "Total Words"
+          },
+          "frequencies": {
+            "items": {
+              "$ref": "#/components/schemas/WordFreqItem"
+            },
+            "type": "array",
+            "title": "Frequencies"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_words",
+          "frequencies"
+        ],
+        "title": "WordFreqResponse"
+      },
+      "XmlJsonRequest": {
+        "properties": {
+          "xml_string": {
+            "type": "string",
+            "title": "Xml String",
+            "default": "<user><id>101</id><name>Lakshay</name><active>true</active></user>"
+          }
+        },
+        "type": "object",
+        "title": "XmlJsonRequest"
+      },
+      "XmlJsonResponse": {
+        "properties": {
+          "json_object": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Json Object"
+          }
+        },
+        "type": "object",
+        "required": [
+          "json_object"
+        ],
+        "title": "XmlJsonResponse"
+      },
+      "XssRequest": {
+        "properties": {
+          "html_input": {
+            "type": "string",
+            "title": "Html Input",
+            "default": "<script>alert('xss')</script>"
+          }
+        },
+        "type": "object",
+        "title": "XssRequest"
+      },
+      "XssResponse": {
+        "properties": {
+          "contains_xss": {
+            "type": "boolean",
+            "title": "Contains Xss"
+          },
+          "detected_tags_or_events": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Detected Tags Or Events"
+          }
+        },
+        "type": "object",
+        "required": [
+          "contains_xss",
+          "detected_tags_or_events"
+        ],
+        "title": "XssResponse"
+      },
+      "YamlJsonRequest": {
+        "properties": {
+          "yaml_string": {
+            "type": "string",
+            "title": "Yaml String",
+            "default": "server:\n  port: 8080\n  host: 0.0.0.0\nfeatures:\n  - auth\n  - rate_limit"
+          }
+        },
+        "type": "object",
+        "title": "YamlJsonRequest"
+      },
+      "YamlJsonResponse": {
+        "properties": {
+          "json_string": {
+            "type": "string",
+            "title": "Json String"
+          },
+          "parsed_object": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Parsed Object"
+          }
+        },
+        "type": "object",
+        "required": [
+          "json_string",
+          "parsed_object"
+        ],
+        "title": "YamlJsonResponse"
       },
       "YouTubeIntelRequest": {
         "properties": {

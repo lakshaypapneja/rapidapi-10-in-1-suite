@@ -22,19 +22,23 @@ from app.routers import (
     api_18_text_dedupe,
     api_19_regex_tester,
     api_20_code_detector,
+    group_02_web_intel,
+    group_03_security,
+    group_04_validation,
+    group_05_transformers,
+    group_06_math_calc,
+    group_07_content_mock,
 )
 from app.security import verify_rapidapi_secret
 
 app = FastAPI(
-    title="AI & Developer 20-in-1 Utility Suite (RapidAPI Ready)",
+    title="AI & Developer 100-in-1 Mega Utility Suite (RapidAPI Ready)",
     description=(
-        "Production-ready collection of 20 high-demand APIs built for RapidAPI monetization with $0.00 COGS. "
-        "Includes Web2Markdown, B2B Lead Enrichment, SEO Audit, Email Verifier, YouTube Transcript, "
-        "PII Redactor, JSON Repair, Password Auditor, Cron Parser, Text Analytics, Token Cost Estimator, "
-        "Markdown-to-TTS Cleaner, RAG Chunker, Prompt Injection Scanner, Vector Math, Citation Extractor, "
-        "Prompt Template Hydrator, Text Deduplicator, Regex Tester, and Code Language Detector."
+        "The ultimate 100-in-1 developer utility suite for AI engineers, SaaS founders, and automation builders. "
+        "Includes Web Scraping, AI Agents/RAG tools, Security/Crypto, Phone/IBAN/Card Validation, Format Converters, "
+        "Math/Finance, QR Code generation, Mock Data, and more — all with zero external dependencies and 100% profit margin."
     ),
-    version="1.1.0",
+    version="2.0.0",
     dependencies=[Depends(verify_rapidapi_secret)],
 )
 
@@ -51,32 +55,11 @@ app.add_middleware(
 async def root_catalog():
     return {
         "status": "online",
-        "suite": "RapidAPI 20-in-1 Developer & AI Monetization Suite",
+        "suite": "RapidAPI 100-in-1 Mega Developer & AI Monetization Suite",
         "docs_url": "/docs",
         "openapi_url": "/openapi.json",
-        "total_apis": 20,
-        "apis": [
-            {"id": 1, "name": "Web2Markdown & AI Context Extractor", "endpoint": "/api/v1/web-to-markdown/extract"},
-            {"id": 2, "name": "B2B Domain & Company Lead Enrichment", "endpoint": "/api/v1/lead-extractor/enrich"},
-            {"id": 3, "name": "Technical SEO & GEO (AI Search) Audit", "endpoint": "/api/v1/seo-audit/analyze"},
-            {"id": 4, "name": "Disposable Email, Domain & Syntax Intelligence", "endpoint": "/api/v1/email-verify/check"},
-            {"id": 5, "name": "YouTube Transcript, Metadata & Viral Hook Extractor", "endpoint": "/api/v1/youtube-intel/transcript"},
-            {"id": 6, "name": "Smart PII Redaction & Data Sanitizer for LLMs", "endpoint": "/api/v1/pii-redactor/sanitize"},
-            {"id": 7, "name": "LLM Output Repair & Messy JSON Parser", "endpoint": "/api/v1/json-repair/repair"},
-            {"id": 8, "name": "Password Entropy & Secret Leak Auditor", "endpoint": "/api/v1/security-audit/evaluate"},
-            {"id": 9, "name": "Universal Cron, Natural Language Schedule & Timezone", "endpoint": "/api/v1/cron-schedule/parse"},
-            {"id": 10, "name": "Readability, Sentiment & Content Quality Scorer", "endpoint": "/api/v1/text-analytics/score"},
-            {"id": 11, "name": "Token Counter & Multi-Model Cost Estimator", "endpoint": "/api/v1/token-cost-estimator/calculate"},
-            {"id": 12, "name": "Markdown to Clean Plain Text & TTS Formatter", "endpoint": "/api/v1/markdown-cleaner/clean"},
-            {"id": 13, "name": "Text Chunking & RAG Document Splitter", "endpoint": "/api/v1/rag-chunker/split"},
-            {"id": 14, "name": "Prompt Injection & Jailbreak Detector", "endpoint": "/api/v1/prompt-security/scan"},
-            {"id": 15, "name": "Embedding Vector Normalizer & Cosine Similarity", "endpoint": "/api/v1/vector-math/similarity"},
-            {"id": 16, "name": "AI Citation & Source Grounding Extractor", "endpoint": "/api/v1/ai-citations/extract"},
-            {"id": 17, "name": "System Prompt Template Hydrator & Validator", "endpoint": "/api/v1/prompt-hydrator/hydrate"},
-            {"id": 18, "name": "LLM Output Loop & Repetition Deduplicator", "endpoint": "/api/v1/deduplicate-text/dedupe"},
-            {"id": 19, "name": "Regex Tester & Pattern Match Explainer", "endpoint": "/api/v1/regex-tester/test"},
-            {"id": 20, "name": "Code Snippet Language & Runtime Detector", "endpoint": "/api/v1/code-detector/detect"},
-        ],
+        "total_apis": 100,
+        "version": "2.0.0",
     }
 
 
@@ -85,6 +68,7 @@ async def health_check():
     return {"status": "healthy"}
 
 
+# Mount Initial 20 Routers
 app.include_router(api_01_web_markdown.router)
 app.include_router(api_02_lead_extractor.router)
 app.include_router(api_03_seo_audit.router)
@@ -105,3 +89,11 @@ app.include_router(api_17_prompt_hydrator.router)
 app.include_router(api_18_text_dedupe.router)
 app.include_router(api_19_regex_tester.router)
 app.include_router(api_20_code_detector.router)
+
+# Mount 80 Additional Routers (Groups 02 to 07 -> Total 100 APIs)
+app.include_router(group_02_web_intel.router)
+app.include_router(group_03_security.router)
+app.include_router(group_04_validation.router)
+app.include_router(group_05_transformers.router)
+app.include_router(group_06_math_calc.router)
+app.include_router(group_07_content_mock.router)
