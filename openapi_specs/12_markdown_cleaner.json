@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Markdown to Clean Text & TTS Formatter API",
+    "description": "Strip Markdown formatting, code fences, and tags to prepare clean text for text-to-speech audio engines.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/markdown-cleaner/clean": {
+      "post": {
+        "tags": [
+          "12. Markdown to Clean Plain Text & TTS Formatter"
+        ],
+        "summary": "Strip Markdown tags, links, and code fences into clean plain text for TTS and speech pipelines",
+        "operationId": "clean_markdown_for_tts_api_v1_markdown_cleaner_clean_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CleanMarkdownRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CleanMarkdownResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CleanMarkdownRequest": {
+        "properties": {
+          "markdown_text": {
+            "type": "string",
+            "title": "Markdown Text",
+            "description": "Raw markdown string to strip into pure conversational speech/plain text.",
+            "default": "# Quarterly Report\n\nHere is the link: [Dashboard](https://example.com/stats). **Note:** `API_KEY` is required!\n\n- Point 1\n- Point 2\n\n```python\nprint('hello')\n```"
+          },
+          "strip_code_blocks": {
+            "type": "boolean",
+            "title": "Strip Code Blocks",
+            "description": "Whether to completely remove code snippets/blocks for speech synthesis (TTS).",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "CleanMarkdownRequest"
+      },
+      "CleanMarkdownResponse": {
+        "properties": {
+          "clean_text": {
+            "type": "string",
+            "title": "Clean Text"
+          },
+          "original_char_count": {
+            "type": "integer",
+            "title": "Original Char Count"
+          },
+          "cleaned_char_count": {
+            "type": "integer",
+            "title": "Cleaned Char Count"
+          },
+          "estimated_speaking_duration_seconds": {
+            "type": "number",
+            "title": "Estimated Speaking Duration Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "clean_text",
+          "original_char_count",
+          "cleaned_char_count",
+          "estimated_speaking_duration_seconds"
+        ],
+        "title": "CleanMarkdownResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

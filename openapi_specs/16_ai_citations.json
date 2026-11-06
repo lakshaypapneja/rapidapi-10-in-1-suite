@@ -1,0 +1,180 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI Citation & Source Grounding Extractor API",
+    "description": "Extract URLs and footnote reference brackets from unstructured LLM generations.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/ai-citations/extract": {
+      "post": {
+        "tags": [
+          "16. AI Citation & Source Grounding Extractor"
+        ],
+        "summary": "Extract footnote citations, URLs, and source brackets from unstructured LLM answers",
+        "operationId": "extract_citations_api_v1_ai_citations_extract_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CitationFormatRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CitationFormatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CitationFormatRequest": {
+        "properties": {
+          "unstructured_text": {
+            "type": "string",
+            "title": "Unstructured Text",
+            "description": "Unstructured LLM generation containing citations, references, or footnotes.",
+            "default": "According to the latest documentation [1], FastMCP allows building tools rapidly. Also refer to (Source: https://example.com/docs) for deployment tips."
+          }
+        },
+        "type": "object",
+        "title": "CitationFormatRequest"
+      },
+      "CitationFormatResponse": {
+        "properties": {
+          "clean_text": {
+            "type": "string",
+            "title": "Clean Text"
+          },
+          "total_citations": {
+            "type": "integer",
+            "title": "Total Citations"
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/CitationItem"
+            },
+            "type": "array",
+            "title": "Citations"
+          }
+        },
+        "type": "object",
+        "required": [
+          "clean_text",
+          "total_citations",
+          "citations"
+        ],
+        "title": "CitationFormatResponse"
+      },
+      "CitationItem": {
+        "properties": {
+          "index": {
+            "type": "integer",
+            "title": "Index"
+          },
+          "raw_reference": {
+            "type": "string",
+            "title": "Raw Reference"
+          },
+          "target_source": {
+            "type": "string",
+            "title": "Target Source"
+          },
+          "reference_type": {
+            "type": "string",
+            "title": "Reference Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "index",
+          "raw_reference",
+          "target_source",
+          "reference_type"
+        ],
+        "title": "CitationItem"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Embedding Vector Normalizer & Cosine Similarity API",
+    "description": "Compute dot products, cosine similarity, distance, and L2 normalization on embedding arrays.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/vector-math/similarity": {
+      "post": {
+        "tags": [
+          "15. Embedding Vector Normalizer & Cosine Similarity"
+        ],
+        "summary": "Compute high-speed dot product, cosine similarity and distance between two embedding vectors",
+        "operationId": "compute_similarity_api_v1_vector_math_similarity_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CosineRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CosineResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/vector-math/normalize": {
+      "post": {
+        "tags": [
+          "15. Embedding Vector Normalizer & Cosine Similarity"
+        ],
+        "summary": "Normalize an embedding vector to unit length (L2 normalization)",
+        "operationId": "normalize_vector_api_v1_vector_math_normalize_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NormalizeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NormalizeResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CosineRequest": {
+        "properties": {
+          "vector_a": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Vector A",
+            "description": "First embedding vector array.",
+            "default": [
+              0.12,
+              0.45,
+              -0.67,
+              0.89
+            ]
+          },
+          "vector_b": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Vector B",
+            "description": "Second embedding vector array (must have identical dimension).",
+            "default": [
+              0.1,
+              0.4,
+              -0.7,
+              0.85
+            ]
+          }
+        },
+        "type": "object",
+        "title": "CosineRequest"
+      },
+      "CosineResponse": {
+        "properties": {
+          "dimension": {
+            "type": "integer",
+            "title": "Dimension"
+          },
+          "dot_product": {
+            "type": "number",
+            "title": "Dot Product"
+          },
+          "cosine_similarity": {
+            "type": "number",
+            "title": "Cosine Similarity"
+          },
+          "cosine_distance": {
+            "type": "number",
+            "title": "Cosine Distance"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dimension",
+          "dot_product",
+          "cosine_similarity",
+          "cosine_distance"
+        ],
+        "title": "CosineResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "NormalizeRequest": {
+        "properties": {
+          "vector": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Vector",
+            "description": "Vector array to normalize to unit length (L2 norm = 1.0).",
+            "default": [
+              3.0,
+              4.0,
+              0.0
+            ]
+          }
+        },
+        "type": "object",
+        "title": "NormalizeRequest"
+      },
+      "NormalizeResponse": {
+        "properties": {
+          "original_magnitude": {
+            "type": "number",
+            "title": "Original Magnitude"
+          },
+          "normalized_vector": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Normalized Vector"
+          }
+        },
+        "type": "object",
+        "required": [
+          "original_magnitude",
+          "normalized_vector"
+        ],
+        "title": "NormalizeResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

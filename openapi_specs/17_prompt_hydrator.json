@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "System Prompt Template Hydrator & Validator API",
+    "description": "Safely hydrate {{variable}} prompt templates with missing placeholder detection.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/prompt-hydrator/hydrate": {
+      "post": {
+        "tags": [
+          "17. System Prompt Template Hydrator & Validator"
+        ],
+        "summary": "Safely inject variables into {{variable}} prompt templates with missing-field validation",
+        "operationId": "hydrate_prompt_template_api_v1_prompt_hydrator_hydrate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HydrateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HydrateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HydrateRequest": {
+        "properties": {
+          "template": {
+            "type": "string",
+            "title": "Template",
+            "description": "Prompt template containing {{variable}} placeholders.",
+            "default": "You are an expert in {{domain}}. Your tone is {{tone}}. Answer the user query: {{query}}."
+          },
+          "variables": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Variables",
+            "description": "Key-value mapping of variables to inject.",
+            "default": {
+              "domain": "Python Development",
+              "tone": "concise and practical",
+              "query": "How do I build an API?"
+            }
+          },
+          "strict": {
+            "type": "boolean",
+            "title": "Strict",
+            "description": "If True, missing variables raise an error; if False, unfilled tags are reported in missing_variables.",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "HydrateRequest"
+      },
+      "HydrateResponse": {
+        "properties": {
+          "hydrated_prompt": {
+            "type": "string",
+            "title": "Hydrated Prompt"
+          },
+          "injected_count": {
+            "type": "integer",
+            "title": "Injected Count"
+          },
+          "missing_variables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Missing Variables"
+          },
+          "detected_variables": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Detected Variables"
+          }
+        },
+        "type": "object",
+        "required": [
+          "hydrated_prompt",
+          "injected_count",
+          "missing_variables",
+          "detected_variables"
+        ],
+        "title": "HydrateResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

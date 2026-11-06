@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Code Snippet Language & Runtime Detector API",
+    "description": "Identify programming language, target runtime, and structural properties of code snippets.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/code-detector/detect": {
+      "post": {
+        "tags": [
+          "20. Code Snippet Language & Runtime Detector"
+        ],
+        "summary": "Identify programming language, runtime, and structure of code snippets for AI agent pipelines",
+        "operationId": "detect_code_language_api_v1_code_detector_detect_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodeDetectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeDetectResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CodeDetectRequest": {
+        "properties": {
+          "code_snippet": {
+            "type": "string",
+            "title": "Code Snippet",
+            "description": "Raw code snippet to detect programming language and runtime environment for.",
+            "default": "import asyncio\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get('/')\ndef hello():\n    return {'status': 'ok'}"
+          }
+        },
+        "type": "object",
+        "title": "CodeDetectRequest"
+      },
+      "CodeDetectResponse": {
+        "properties": {
+          "detected_language": {
+            "type": "string",
+            "title": "Detected Language"
+          },
+          "runtime_environment": {
+            "type": "string",
+            "title": "Runtime Environment"
+          },
+          "confidence_score": {
+            "type": "number",
+            "title": "Confidence Score"
+          },
+          "line_count": {
+            "type": "integer",
+            "title": "Line Count"
+          },
+          "has_comments": {
+            "type": "boolean",
+            "title": "Has Comments"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detected_language",
+          "runtime_environment",
+          "confidence_score",
+          "line_count",
+          "has_comments"
+        ],
+        "title": "CodeDetectResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

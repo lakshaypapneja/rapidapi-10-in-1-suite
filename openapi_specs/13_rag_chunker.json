@@ -1,0 +1,202 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Text Chunking & RAG Document Splitter API",
+    "description": "Segment long documents into overlapping token-friendly chunks for vector databases.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/rag-chunker/split": {
+      "post": {
+        "tags": [
+          "13. Text Chunking & RAG Document Splitter"
+        ],
+        "summary": "Segment text into overlapping chunks optimized for RAG embeddings and Vector DBs",
+        "operationId": "chunk_document_api_v1_rag_chunker_split_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChunkRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChunkResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ChunkItem": {
+        "properties": {
+          "chunk_index": {
+            "type": "integer",
+            "title": "Chunk Index"
+          },
+          "char_count": {
+            "type": "integer",
+            "title": "Char Count"
+          },
+          "approx_tokens": {
+            "type": "integer",
+            "title": "Approx Tokens"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "chunk_index",
+          "char_count",
+          "approx_tokens",
+          "text"
+        ],
+        "title": "ChunkItem"
+      },
+      "ChunkRequest": {
+        "properties": {
+          "document_text": {
+            "type": "string",
+            "title": "Document Text",
+            "description": "Source document text to segment into RAG vector-store chunks.",
+            "default": "Antigravity agents allow automated coding. They read codebase structure, edit files, and run tests. In addition, they integrate with external MCP servers for extended capabilities. Deployment is managed via cloud providers."
+          },
+          "chunk_size": {
+            "type": "integer",
+            "maximum": 4000.0,
+            "minimum": 50.0,
+            "title": "Chunk Size",
+            "description": "Target chunk size in characters.",
+            "default": 150
+          },
+          "overlap": {
+            "type": "integer",
+            "maximum": 1000.0,
+            "minimum": 0.0,
+            "title": "Overlap",
+            "description": "Overlap in characters between consecutive chunks.",
+            "default": 30
+          },
+          "split_mode": {
+            "type": "string",
+            "title": "Split Mode",
+            "description": "Splitting strategy: 'sentence', 'paragraph', or 'fixed'.",
+            "default": "sentence"
+          }
+        },
+        "type": "object",
+        "title": "ChunkRequest"
+      },
+      "ChunkResponse": {
+        "properties": {
+          "total_chunks": {
+            "type": "integer",
+            "title": "Total Chunks"
+          },
+          "total_characters": {
+            "type": "integer",
+            "title": "Total Characters"
+          },
+          "chunks": {
+            "items": {
+              "$ref": "#/components/schemas/ChunkItem"
+            },
+            "type": "array",
+            "title": "Chunks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_chunks",
+          "total_characters",
+          "chunks"
+        ],
+        "title": "ChunkResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

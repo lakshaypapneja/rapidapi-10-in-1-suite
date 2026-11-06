@@ -1,0 +1,167 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Token Counter & Multi-Model Cost Estimator API",
+    "description": "Calculate token count and pricing comparison across GPT-4o, Claude 3.5, and Gemini 1.5.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/token-cost-estimator/calculate": {
+      "post": {
+        "tags": [
+          "11. Token Counter & Multi-Model Cost Estimator"
+        ],
+        "summary": "Estimate input/output token counts and round-trip costs across top LLM models",
+        "operationId": "calculate_tokens_and_cost_api_v1_token_cost_estimator_calculate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenEstimateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenEstimateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "TokenEstimateRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "Text or prompt to estimate tokens and generation costs for.",
+            "default": "Analyze the quarterly performance and build a detailed summary report for stakeholders."
+          },
+          "expected_output_tokens": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Output Tokens",
+            "description": "Expected generation length in tokens to project total round-trip cost.",
+            "default": 500
+          }
+        },
+        "type": "object",
+        "title": "TokenEstimateRequest"
+      },
+      "TokenEstimateResponse": {
+        "properties": {
+          "estimated_input_tokens": {
+            "type": "integer",
+            "title": "Estimated Input Tokens"
+          },
+          "character_count": {
+            "type": "integer",
+            "title": "Character Count"
+          },
+          "word_count": {
+            "type": "integer",
+            "title": "Word Count"
+          },
+          "pricing_comparison": {
+            "additionalProperties": {
+              "additionalProperties": {
+                "type": "number"
+              },
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Pricing Comparison"
+          }
+        },
+        "type": "object",
+        "required": [
+          "estimated_input_tokens",
+          "character_count",
+          "word_count",
+          "pricing_comparison"
+        ],
+        "title": "TokenEstimateResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

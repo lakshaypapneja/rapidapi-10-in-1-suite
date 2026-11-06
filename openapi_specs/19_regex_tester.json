@@ -1,0 +1,203 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Regex Tester & Pattern Match Explainer API",
+    "description": "Validate regular expressions, extract match indices, and provide plain-English explanations.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rapidapi-10-in-1-suite.onrender.com",
+      "description": "Production Render Cloud Server"
+    }
+  ],
+  "paths": {
+    "/api/v1/regex-tester/test": {
+      "post": {
+        "tags": [
+          "19. Regex Tester & Pattern Match Explainer"
+        ],
+        "summary": "Validate, test, and extract matches with indices and plain-English regex token explanations",
+        "operationId": "test_regex_pattern_api_v1_regex_tester_test_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegexTestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegexTestResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "RegexMatchItem": {
+        "properties": {
+          "match": {
+            "type": "string",
+            "title": "Match"
+          },
+          "start": {
+            "type": "integer",
+            "title": "Start"
+          },
+          "end": {
+            "type": "integer",
+            "title": "End"
+          },
+          "groups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Groups"
+          }
+        },
+        "type": "object",
+        "required": [
+          "match",
+          "start",
+          "end",
+          "groups"
+        ],
+        "title": "RegexMatchItem"
+      },
+      "RegexTestRequest": {
+        "properties": {
+          "pattern": {
+            "type": "string",
+            "title": "Pattern",
+            "description": "Regular expression pattern to test.",
+            "default": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b"
+          },
+          "test_string": {
+            "type": "string",
+            "title": "Test String",
+            "description": "Target string to search.",
+            "default": "Contact us at support@example.com or sales.team@acme.co.uk for inquiries."
+          },
+          "flags": {
+            "type": "string",
+            "title": "Flags",
+            "description": "Regex flags: 'i' (ignore case), 'm' (multiline), 's' (dotall).",
+            "default": "i"
+          }
+        },
+        "type": "object",
+        "title": "RegexTestRequest"
+      },
+      "RegexTestResponse": {
+        "properties": {
+          "is_valid_pattern": {
+            "type": "boolean",
+            "title": "Is Valid Pattern"
+          },
+          "total_matches": {
+            "type": "integer",
+            "title": "Total Matches"
+          },
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/RegexMatchItem"
+            },
+            "type": "array",
+            "title": "Matches"
+          },
+          "explanation": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_valid_pattern",
+          "total_matches",
+          "matches",
+          "explanation"
+        ],
+        "title": "RegexTestResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
